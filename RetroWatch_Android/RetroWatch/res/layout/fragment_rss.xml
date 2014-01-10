@@ -1,0 +1,100 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/AppTheme.FragmentContainer"
+    tools:context=".RetroWatchActivity$FiltersFragment" >
+
+    <!-- Start of fragment container -->
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        
+        <!-- Filter list -->
+        <ListView
+            android:id="@+id/list_rss"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            style="@style/AppTheme.List" />
+        
+        <!-- Start of add filter form -->
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            style="@style/AppTheme.FormContainer" >
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView 
+                    android:id="@+id/text_find_feed" 
+                    android:layout_width="0dip" 
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/rss_type_here"
+                    style="@style/AppTheme.FormText" />
+                <Button 
+                    android:id="@+id/btn_find_more"
+                    android:layout_width="100dip"
+                    android:layout_height="30dip"
+                    android:text="@string/rss_find_more"
+                    style="@style/AppTheme.FormButton" />
+                <Button 
+                    android:id="@+id/btn_new"
+                    android:layout_width="50dip"
+                    android:layout_height="30dip"
+                    android:text="@string/command_new"
+                    style="@style/AppTheme.FormButton" />
+            </LinearLayout>
+
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText 
+                    android:id="@+id/edit_title"
+                    android:layout_width="0dip" 
+                    android:layout_height="wrap_content"
+                    android:hint="@string/rss_title"
+                    android:layout_weight="1"
+                    style="@style/AppTheme.FormEditText" />
+                <Button 
+                    android:id="@+id/btn_delete"
+                    android:layout_width="50dip"
+                    android:layout_height="30dip"
+                    android:text="@string/command_delete"
+                    style="@style/AppTheme.FormButton" />
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText 
+                    android:id="@+id/edit_url"
+                    android:layout_width="0dip" 
+                    android:layout_height="wrap_content"
+                    android:hint="@string/rss_url"
+                    android:layout_weight="1"
+                    style="@style/AppTheme.FormEditText" />
+                <Button 
+                    android:id="@+id/btn_add"
+                    android:layout_width="50dip"
+                    android:layout_height="30dip"
+                    android:text="@string/command_add"
+                    style="@style/AppTheme.FormButton" />
+            </LinearLayout>
+            
+        </LinearLayout>
+        <!-- End of add filter form -->
+        
+        
+    </LinearLayout>
+    <!-- End of fragment container -->
+
+
+</FrameLayout>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Global app strings -->
+    <string name="app_name">Retro Watch</string>
+    <string name="service_name">Retro Watch Service</string>
+    <string name="web_view_name">RSS Browser</string>
+    <string name="noti_receiver_name">RetroWatch noti receiver</string>
+    
+    <!-- Settings -->
+    <string name="action_settings">앱 설정</string>
+    
+    <!-- UI, Activity, Fragment -->
+    <string name="title_messagelist">메시지 목록</string>
+    <string name="title_filters">필터 설정</string>
+    <string name="title_rss">RSS</string>
+    <string name="title_watchcontrol">시계 컨트롤</string>
+    
+    <!-- Contents -->
+    <string name="content_notification">Notification</string>
+    <string name="content_gmail_unread_count">Gmail unread count</string>
+    <string name="content_undefined">Undefined</string>
+    
+    <!--  Bluetooth -->
+    <string name="bt_title">블루투스</string>
+    
+    <string name="bt_state_init">초기화 중</string>
+    <string name="bt_state_wait">대기중 (응답 없을 경우 수동 선택)</string>
+    <string name="bt_state_connect">연결중</string>
+    <string name="bt_state_connected">연결됨</string>
+    <string name="bt_state_error">에러</string>
+    
+    <string name="bt_not_enabled_leaving">블루투스가 활성화 되지 않았습니다. 폰 설정에서 블루투스를 활성화 시키세요.</string>
+    
+    <string name="bt_cmd_sending_error">전송이 실패하였습니다.</string>
+
+    <!--  DeviceListActivity -->
+    <string name="scanning">장치 찾는 중...</string>
+    <string name="select_device">연결할 장치 선택</string>
+    <string name="none_paired">페어링 된 장치가 없습니다.</string>
+    <string name="none_found">발견된 장치가 없습니다.</string>
+    <string name="title_paired_devices">페어링 된 장치</string>
+    <string name="title_other_devices">사용가능한 다른 장치들</string>
+    <string name="button_scan">장치 스캔</string>
+
+    <!-- Options Menu -->
+    <string name="connect">연결할 장치 선택</string>
+    <string name="noti_settings">알림 권한 설정</string>
+    <string name="refresh_contents">메시지 새로고침</string>
+    <string name="send_contents">시계로 데이터 전송</string>
+    <string name="discoverable">Discover 상태로 변경</string>
+    
+    <!-- Command -->
+    <string name="command_new">New</string>
+    <string name="command_add">Add</string>
+    <string name="command_edit">Edit</string>
+    <string name="command_delete">Delete</string>
+    
+    <!-- Warning message -->
+    <string name="warning_select_type">필터링할 메시지 타입이 필요합니다.</string>
+    <string name="warning_select_compare_type">비교 방법을 선택하세요.</string>
+    <string name="warning_select_replace_type">치환 방법을 선택하세요.</string>
+    <string name="warning_type_target">비교할 글자를 입력하세요.</string>
+    <string name="warning_type_rss_field">URL, 제목을 입력하세요.</string>
+    
+    <!-- RSS strings -->
+    <string name="rss_title">RSS 제목 입력</string>
+    <string name="rss_url">URL 입력</string>
+    <string name="rss_type_here">RSS 추가</string>
+    <string name="rss_find_more">RSS 브라우저</string>
+    
+    <!-- Settings string -->
+    <string name="email_field_title">Gmail 주소 입력</string>
+    <string name="email_addr_hint">aaa@gmail.com</string>
+    <string name="clock_style_title">시계 화면 스타일</string>
+    <string-array name="clock_style_array">
+        <item>스타일 선택</item>
+        <item>기본 아날로그</item>
+        <item>기본 디지털</item>
+        <item>기본 혼합</item>
+    </string-array>
+    <string name="clock_indicator_title">시계 인디케이터 표시</string>
+    <string-array name="clock_indicator_array">
+        <item>설정 선택</item>
+        <item>보이기</item>
+        <item>감추기</item>
+    </string-array>
+    <string name="update_time_title">메시지 업데이트 간격</string>
+    <string name="noti_set_gmail_addr">시계 컨트롤 탭에서 Gmail 주소를 입력해야 정확한 정보가 표시됩니다.</string>
+    
+    <!-- Filter strings -->
+    <string name="filter_object_type">대상 메시지 타입</string>
+    <string name="filter_compare_type">비교 방법</string>
+    <string name="filter_replace_type">치환 방법</string>
+    <string name="filter_origin">비교할 문자</string>
+    <string name="filter_replace">치환할 문자(비워두면 삭제)</string>
+    <string name="filter_icon">아이콘</string>
+    
+    <string name="filter_field_converted">변환된 문자열:</string>
+    <string name="filter_text_blank">[공백]</string>
+    
+    <string-array name="filter_type_array">
+        <item>대상 메시지 타입</item>
+        <item>모든 타입</item>
+        <item>Notification</item>
+        <item>Messaging</item>
+        <item>Feed</item>
+        <item>Emergency</item>
+        <item>Package name</item>
+    </string-array>
+    
+    <string-array name="filter_matching_type_array">
+        <item>비교 방법</item>
+        <item>일치 할 때</item>
+        <item>입력 문자로 시작할 때</item>
+        <item>입력 문자로 끝날 때</item>
+        <item>입력 문자를 포함할 때</item>
+    </string-array>
+    
+    <string-array name="filter_replace_type_array">
+        <item>치환 방법</item>
+        <item>전체를 바꿈</item>
+        <item>동일한 부분만 바꿈</item>
+    </string-array>
+    
+    <string-array name="filter_icon_type_array">
+        <item>아이콘 선택</item>
+        <item>안드로이드</item>
+        <item>닻</item>
+        <item>apple</item>
+        <item>바코드</item>
+        <item>배터리 full</item>
+        <item>배터리 med</item>
+        <item>배터리 low</item>
+        <item>배터리 empty</item>
+        <item>북마크</item>
+        <item>캘린더</item>
+        <item>전화</item>
+        <item>카메라</item>
+        <item>취소</item>
+        <item>해골 캐릭터</item>
+        <item>캐릭터1</item>
+        <item>캐릭터2</item>
+        <item>캐릭터3</item>
+        <item>캐릭터4</item>
+        <item>차트</item>
+        <item>대화</item>
+        <item>chrome</item>
+        <item>클립</item>
+        <item>시계</item>
+        <item>복사</item>
+        <item>거부</item>
+        <item>문서</item>
+        <item>다운로드</item>
+        <item>지구</item>
+        <item>이메일</item>
+        <item>폴더</item>
+        <item>home</item>
+        <item>고양이</item>
+        <item>리스트</item>
+        <item>영화</item>
+        <item>음악</item>
+        <item>위치</item>
+        <item>연필</item>
+        <item>사람</item>
+        <item>그림</item>
+        <item>알약</item>
+        <item>전원</item>
+        <item>plugged</item>
+        <item>unplugged</item>
+        <item>프린트</item>
+        <item>우산</item>
+        <item>새로고침</item>
+        <item>RSS</item>
+        <item>저장</item>
+        <item>잠금</item>
+        <item>풀림</item>
+        <item>settings</item>
+        <item>smile</item>
+        <item>facebook</item>
+        <item>twitter</item>
+        <item>tag</item>
+        <item>trade</item>
+        <item>휴지통</item>
+        <item>unknown</item>
+        <item>USIM</item>
+        <item>대기</item>
+        <item>경고</item>
+        <item>wifi</item>
+        <item>windows</item>
+        <item>cloud</item>
+        <item>안테나</item>
+    </string-array>
+    
+    <!-- WebView -->
+    <string name="warning_loading_wait">로딩중...</string>
+    <string name="msg_rss_update_success">RSS 가 등록되었습니다.</string>
+    <string name="warning_error_while_adding_rss">에러! 등록할 수 없습니다!</string>
+    <string name="button_go">Go</string>
+    
+    <!-- Etc -->
+    <string-array name="message_type_array">
+        <item>UNDEFINED</item>
+        <item>NOTIFICATION</item>
+        <item>MESSAGING</item>
+        <item>EMERGENCY</item>
+        <item>FEED</item>
+        <!--  Disabled: 
+        <item>SMS RECEIVED</item>
+         -->
+    </string-array>
+    
+    <string-array name="call_type_array">
+        <item>Call state idle</item>
+        <item>Call received</item>
+    </string-array>
+    
+    <string-array name="rf_type_array">
+        <item>In service</item>
+        <item>Out of service</item>
+        <item>Emergency only</item>
+        <item>Power off</item>
+    </string-array>
+    
+    <string name="batt_type_string">Battery: </string>
+
+</resources>

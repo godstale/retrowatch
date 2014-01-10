@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hardcopy.retrowatch"
+    android:versionCode="2"
+    android:versionName="1.0.1" >
+
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.gm.permission.READ_CONTENT_PROVIDER"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+        <!-- Activity -->
+        <activity
+            android:name="com.hardcopy.retrowatch.RetroWatchActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:configChanges="keyboardHidden|orientation|screenSize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".DeviceListActivity"
+                  android:label="@string/select_device"
+                  android:theme="@android:style/Theme.Dialog"
+                  android:configChanges="keyboardHidden|orientation|screenSize" >
+        </activity>
+        
+        <activity
+            android:name="com.hardcopy.retrowatch.RetroWebViewActivity"
+            android:label="@string/web_view_name"
+            android:launchMode="singleTask"
+            android:configChanges="keyboardHidden|orientation|screenSize" >
+        </activity>
+        
+        <!-- Service -->
+        <service
+            android:name= "com.hardcopy.retrowatch.service.RetroWatchService"
+            android:icon="@drawable/ic_launcher"
+            android:label= "@string/service_name"
+            android:configChanges="keyboardHidden|orientation|screenSize" >
+        </service> 
+        
+        <service android:name="com.hardcopy.retrowatch.service.NotificationReceiverService"
+            android:label="@string/noti_receiver_name"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+        
+        <!-- Broadcast receiver -->
+		<receiver android:name="com.hardcopy.retrowatch.service.SmsListener">
+		    <intent-filter>
+		        <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+		    </intent-filter>
+		</receiver>
+        
+    </application>
+
+</manifest>

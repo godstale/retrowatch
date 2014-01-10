@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <color name="gray1">#111111</color>
+    <color name="gray2">#222222</color>
+    <color name="gray3">#333333</color>
+    <color name="gray4">#444444</color>
+    <color name="gray5">#555555</color>
+    <color name="gray6">#666666</color>
+    <color name="gray7">#777777</color>
+    <color name="gray8">#888888</color>
+    <color name="gray9">#999999</color>
+    <color name="graya">#AAAAAA</color>
+    <color name="grayb">#BBBBBB</color>
+    <color name="grayc">#CCCCCC</color>
+    <color name="grayd">#DDDDDD</color>
+    <color name="graye">#EEEEEE</color>
+    <color name="grayf">#FFFFFF</color>
+    
+    <color name="blue1">#C1DBFA</color>
+    <color name="blue2">#A3CBF9</color>
+    <color name="blue3">#89B9F0</color>
+    <color name="blue4">#7DA7D9</color>
+    <color name="blue5">#448CCB</color>
+    <color name="blue6">#0072BC</color>
+    <color name="blue7">#004A80</color>
+    <color name="blue8">#003663</color>
+    
+    <color name="lightblue1">#CBEEFB</color>
+    <color name="lightblue2">#A0E0F8</color>
+    <color name="lightblue3">#76D3F6</color>
+    <color name="lightblue4">#4EC4F1</color>
+    <color name="lightblue5">#1BB0E8</color>
+    <color name="lightblue6">#06A3DE</color>
+    <color name="lightblue7">#0076A3</color>
+    <color name="lightblue8">#005B7F</color>
+    
+    <color name="deepblue1">#E6E5F8</color>
+    <color name="deepblue2">#CECBED</color>
+    <color name="deepblue3">#B3AEDD</color>
+    <color name="deepblue4">#8781BD</color>
+    <color name="deepblue5">#605CA8</color>
+    <color name="deepblue6">#2E3192</color>
+    <color name="deepblue7">#1B1464</color>
+    <color name="deepblue8">#0D004C</color>
+
+    <color name="green1">#005E20</color>
+    <color name="green2">#197B30</color>
+    <color name="green3">#39B54A</color>
+    <color name="green4">#7CC576</color>
+    <color name="green5">#A3D39C</color>
+    <color name="green6">#C0E5BB</color>
+    <color name="green7">#CEEACA</color>
+    <color name="green8">#DFF3DC</color>
+    
+    <color name="lightgreen1">#F4FDE5</color>
+    <color name="lightgreen2">#EAF9D4</color>
+    <color name="lightgreen3">#DBEFBD</color>
+    <color name="lightgreen4">#C4DF9B</color>
+    <color name="lightgreen5">#ACD373</color>
+    <color name="lightgreen6">#8DC63F</color>
+    <color name="lightgreen7">#598527</color>
+    <color name="lightgreen8">#406618</color>
+    
+    <color name="deepgreen1">#005826</color>
+    <color name="deepgreen2">#007236</color>
+    <color name="deepgreen3">#00A651</color>
+    <color name="deepgreen4">#3CB878</color>
+    <color name="deepgreen5">#82CA9C</color>
+    <color name="deepgreen6">#99D8B0</color>
+    <color name="deepgreen7">#B6E9C9</color>
+    <color name="deepgreen8">#D4F5E1</color>
+    
+    <color name="red1">#790000</color>
+    <color name="red2">#9E0B0E</color>
+    <color name="red3">#E0272E</color>
+    <color name="red4">#F26C4F</color>
+    <color name="red5">#F69679</color>
+    <color name="red6">#FAB7A3</color>
+    <color name="red7">#FBD0C3</color>
+    <color name="red8">#FCE1D8</color>
+    
+    <color name="orange1">#7D4900</color>
+    <color name="orange2">#9E0B0E</color>
+    <color name="orange3">#E3820F</color>
+    <color name="orange4">#F7941D</color>
+    <color name="orange5">#F7A94D</color>
+    <color name="orange6">#F7BA71</color>
+    <color name="orange7">#F6D1A5</color>
+    <color name="orange8">#F6E1C8</color>
+    
+    <color name="yellow1">#827B00</color>
+    <color name="yellow2">#ABA000</color>
+    <color name="yellow3">#D3C90C</color>
+    <color name="yellow4">#ECE007</color>
+    <color name="yellow5">#FEF108</color>
+    <color name="yellow6">#FFF568</color>
+    <color name="yellow7">#FFF799</color>
+    <color name="yellow8">#FEFAC5</color>
+    
+    <color name="purple1">#4B0049</color>
+    <color name="purple2">#630460</color>
+    <color name="purple3">#32004B</color>
+    <color name="purple4">#A864A8</color>
+    <color name="purple5">#BD8CBF</color>
+    <color name="purple6">#D7A3DA</color>
+    <color name="purple7">#F1B6F4</color>
+    <color name="purple8">#F9D8FB</color>
+    
+    <color name="deeppurple1">#32004B</color>
+    <color name="deeppurple2">#440E62</color>
+    <color name="deeppurple3">#662D91</color>
+    <color name="deeppurple4">#8560A8</color>
+    <color name="deeppurple5">#A186BE</color>
+    <color name="deeppurple6">#BAA4D3</color>
+    <color name="deeppurple7">#FFF799</color>
+    <color name="deeppurple8">#EDE5F7</color>
+    
+    <color name="pink1">#7B0046</color>
+    <color name="pink2">#7B0046</color>
+    <color name="pink3">#9E005D</color>
+    <color name="pink4">#EC008C</color>
+    <color name="pink5">#F06EAA</color>
+    <color name="pink6">#F49AC1</color>
+    <color name="pink7">#F9BDD8</color>
+    <color name="pink8">#FEE3EF</color>
+    
+    <color name="brown1">#E2674A</color>
+    <color name="brown2">#E05C3E</color>
+    <color name="brown3">#DD4D2C</color>
+    <color name="brown4">#D34322</color>
+    <color name="brown5">#C13D1F</color>
+    <color name="brown6">#AF371D</color>
+    <color name="brown7">#9E321A</color>
+    <color name="brown8">#8C2C17</color>
+    
+</resources>

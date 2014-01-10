@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true" >
+
+    <!-- Web View Container -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:layout_margin="0dip"
+        android:padding="0dip"
+        android:gravity="top" >
+        <EditText
+            android:id="@+id/edit_url"
+            android:layout_width="0dip"
+            android:layout_height="40dip"
+            android:inputType="textUri"
+            android:layout_weight="5"
+            android:text="@string/warning_loading_wait"
+            android:imeOptions="actionGo"
+            android:selectAllOnFocus="false"
+            android:textSize="10sp"
+            style="AppTheme.FormURLEditText" />
+        <Button
+            android:id="@+id/btn_go_url"
+            android:layout_width="40dip"
+            android:layout_height="match_parent"
+            android:padding="0dip"
+            android:text="@string/button_go"
+            style="@style/AppTheme.FormURLButton" />
+    </LinearLayout>
+        
+    <!-- Loading progress bar -->
+    <ProgressBar
+        android:id="@+id/progress_loading"
+        android:layout_width="match_parent"
+        android:layout_height="3dip"
+        android:max="100"
+        android:progress="0"
+        android:secondaryProgress="1"
+        style="?android:attr/progressBarStyleHorizontal"
+        />
+    
+    <!--  Web view must use decisive width and height. 
+            Do not use  [wrap_content] or you'll see only blank page. -->
+    <WebView
+        android:id="@+id/layout_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="0dip" />
+    
+</LinearLayout>
