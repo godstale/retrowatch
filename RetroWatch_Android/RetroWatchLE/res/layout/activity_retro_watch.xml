@@ -1,0 +1,36 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    
+    <android.support.v4.view.ViewPager 
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="24dip"
+        tools:context=".RetroWatchActivity" />
+    
+    
+    <!-- status bar : display connection info -->
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="26dip"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        style="@style/AppTheme.ConnectionInfoContainer" >
+        <ImageView 
+            android:id="@+id/status_title"
+            android:layout_width="wrap_content"
+            android:layout_height="20dip"
+            android:layout_margin="3dip"
+            />
+        <TextView 
+            android:id="@+id/status_text"
+            android:layout_width="match_parent"
+            android:layout_height="20dip"
+            android:layout_margin="3dip"
+            style="@style/AppTheme.ConnectionInfoText" />
+    </LinearLayout>
+    
+</FrameLayout>

@@ -1,0 +1,110 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/AppTheme.FragmentContainer"
+    tools:context=".RetroWatchActivity$FiltersFragment" >
+
+    <!-- Start of fragment container -->
+    <LinearLayout 
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:orientation="vertical" >
+        
+	    <!-- Filter list -->
+	    <ListView
+	        android:id="@+id/list_filters"
+	        android:layout_width="match_parent"
+	        android:layout_height="0dip"
+	        android:layout_weight="1"
+	        style="@style/AppTheme.List" />
+	    
+	    <!-- Start of add filter form -->
+	    <LinearLayout 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:orientation="vertical"
+	    	style="@style/AppTheme.FormContainer" >
+	        
+		    <LinearLayout 
+		    	android:layout_width="match_parent"
+		    	android:layout_height="wrap_content"
+		    	android:orientation="horizontal">
+			    <Spinner 
+			        android:id="@+id/spinner_type" 
+			        android:layout_width="0dip" 
+			        android:layout_height="wrap_content"
+			        android:layout_weight="1"
+			        style="@style/AppTheme.FormSpinner" />
+			    <Spinner 
+			        android:id="@+id/spinner_compare_type" 
+			        android:layout_width="0dip" 
+			        android:layout_height="wrap_content"
+			        android:layout_weight="1"
+			        style="@style/AppTheme.FormSpinner" />
+		        <Spinner 
+                    android:id="@+id/spinner_replace_type" 
+                    android:layout_width="0dip" 
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/AppTheme.FormSpinner" />
+			    <Button 
+			        android:id="@+id/btn_new"
+			        android:layout_width="50dip"
+		    		android:layout_height="30dip"
+		    		android:text="@string/command_new"
+		    		style="@style/AppTheme.FormButton" />
+		    </LinearLayout>
+
+		    <LinearLayout 
+		    	android:layout_width="match_parent"
+		    	android:layout_height="wrap_content"
+		    	android:orientation="horizontal">
+			    <EditText 
+			        android:id="@+id/edit_origin"
+			    	android:layout_width="0dip" 
+		    		android:layout_height="wrap_content"
+		    		android:hint="@string/filter_origin"
+		    		android:layout_weight="1"
+		    		style="@style/AppTheme.FormEditText" />
+			    <Button 
+			        android:id="@+id/btn_delete"
+			        android:layout_width="50dip"
+		    		android:layout_height="30dip"
+		    		android:text="@string/command_delete"
+		    		style="@style/AppTheme.FormButton" />
+			</LinearLayout>
+			
+		    <LinearLayout 
+		    	android:layout_width="match_parent"
+		    	android:layout_height="wrap_content"
+		    	android:orientation="horizontal">
+			    <EditText 
+			        android:id="@+id/edit_replace"
+			    	android:layout_width="0dip" 
+		    		android:layout_height="wrap_content"
+		    		android:hint="@string/filter_replace"
+		    		android:layout_weight="1"
+		    		style="@style/AppTheme.FormEditText" />
+                <Spinner 
+                    android:id="@+id/spinner_icon_type" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content"
+                    style="@style/AppTheme.FormSpinner" />
+			    <Button 
+			        android:id="@+id/btn_add"
+			        android:layout_width="50dip"
+		    		android:layout_height="30dip"
+		    		android:text="@string/command_add"
+		    		style="@style/AppTheme.FormButton" />
+			</LinearLayout>
+	        
+	    </LinearLayout>
+	    <!-- End of add filter form -->
+	    
+	    
+    </LinearLayout>
+	<!-- End of fragment container -->
+
+
+</FrameLayout>

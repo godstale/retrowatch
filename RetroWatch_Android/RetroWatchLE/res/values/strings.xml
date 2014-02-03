@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Global app strings -->
+    <string name="app_name">Retro Watch</string>
+    <string name="service_name">Retro Watch Service</string>
+    <string name="web_view_name">RSS Browser</string>
+    <string name="noti_receiver_name">RetroWatch noti receiver</string>
+    
+    <!-- Settings -->
+    <string name="action_settings">App Settings</string>
+    
+    <!-- UI, Activity, Fragment -->
+    <string name="title_messagelist">Message List</string>
+    <string name="title_filters">Filters</string>
+    <string name="title_rss">RSS</string>
+    <string name="title_watchcontrol">Watch Control</string>
+    
+    <!-- Contents -->
+    <string name="content_notification">Notification</string>
+    <string name="content_gmail_unread_count">Gmail unread count</string>
+    <string name="content_undefined">Undefined</string>
+    
+    <!--  Bluetooth -->
+    <string name="bt_title">Bluetooth</string>
+    
+    <string name="bt_state_init">initializing</string>
+    <string name="bt_state_wait">waiting.. (select a device manually)</string>
+    <string name="bt_state_connect">connecting</string>
+    <string name="bt_state_connected">connected</string>
+    <string name="bt_state_error">error</string>
+    
+    <string name="bt_not_enabled_leaving">Bluetooth was not enabled. Set the bluetooth enable at phone settings.</string>
+    
+    <string name="bt_cmd_sending_error">Transaction failed</string>
+
+    <!--  DeviceListActivity -->
+    <string name="scanning">Scanning for devices...</string>
+    <string name="select_device">Select a device to connect</string>
+    <string name="none_paired">No devices have been paired</string>
+    <string name="none_found">No devices found</string>
+    <string name="title_paired_devices">Paired Devices</string>
+    <string name="title_other_devices">Other Available Devices</string>
+    <string name="button_scan">Scan for devices</string>
+
+    <!-- Options Menu -->
+    <string name="connect">Connect\na device</string>
+    <string name="noti_settings">Notification\nsetting</string>
+    <string name="refresh_contents">Refresh\ncontents</string>
+    <string name="send_contents">Send data\nto watch</string>
+    <string name="discoverable">Make\ndiscoverable</string>
+    
+    <!-- Command -->
+    <string name="command_new">New</string>
+    <string name="command_add">Add</string>
+    <string name="command_edit">Edit</string>
+    <string name="command_delete">Delete</string>
+    
+    <!-- Warning message -->
+    <string name="warning_select_type">Select filtering object type</string>
+    <string name="warning_select_compare_type">Select comparing method</string>
+    <string name="warning_select_replace_type">Select replace method</string>
+    <string name="warning_type_target">Type comparing string</string>
+    <string name="warning_type_rss_field">Type URL, Title string</string>
+    
+    <!-- RSS strings -->
+    <string name="rss_title">Type RSS title</string>
+    <string name="rss_url">Type URL here.</string>
+    <string name="rss_type_here">Type RSS info below</string>
+    <string name="rss_find_more">RSS Browser</string>
+    
+    <!-- Settings string -->
+    <string name="email_field_title">Type your Gmail address</string>
+    <string name="email_addr_hint">aaa@gmail.com</string>
+    <string name="clock_style_title">Watch clock style</string>
+    <string-array name="clock_style_array">
+        <item>Select style</item>
+        <item>Simple ANALOG</item>
+        <item>Simple DIGITAL</item>
+        <item>Simple MIX</item>
+    </string-array>
+    <string name="clock_indicator_title">Show indicator?</string>
+    <string-array name="clock_indicator_array">
+        <item>Select option</item>
+        <item>Visibile</item>
+        <item>Invisible</item>
+    </string-array>
+    <string name="update_time_title">Set contents update interval</string>
+    <string name="noti_set_gmail_addr">Set your Gmail address at WATCH CONTROL tab.</string>
+    
+    <!-- Filter strings -->
+    <string name="filter_object_type">Object type</string>
+    <string name="filter_compare_type">Compare type</string>
+    <string name="filter_replace_type">Replace type</string>
+    <string name="filter_origin">Original string</string>
+    <string name="filter_replace">Replace string (leave blank to erase)</string>
+    <string name="filter_icon">Icon type</string>
+    
+    <string name="filter_field_converted">convert to:</string>
+    <string name="filter_text_blank">[blank]</string>
+    
+    <string-array name="filter_type_array">
+        <item>Object type</item>
+        <item>All type</item>
+        <item>Notification</item>
+        <item>Messaging</item>
+        <item>Feed</item>
+        <item>Emergency</item>
+        <item>Package name</item>
+    </string-array>
+    
+    <string-array name="filter_matching_type_array">
+        <item>Compare method</item>
+        <item>Equals</item>
+        <item>Start with</item>
+        <item>End with</item>
+        <item>Contains</item>
+    </string-array>
+    
+    <string-array name="filter_replace_type_array">
+        <item>Replace method</item>
+        <item>Replace all</item>
+        <item>Replace same part only</item>
+    </string-array>
+    
+    <string-array name="filter_icon_type_array">
+        <item>No icon</item>
+        <item>Android</item>
+        <item>ankor</item>
+        <item>apple</item>
+        <item>barcode</item>
+        <item>battery full</item>
+        <item>battery med</item>
+        <item>battery low</item>
+        <item>battery empty</item>
+        <item>bookmark</item>
+        <item>calendar</item>
+        <item>call</item>
+        <item>camera</item>
+        <item>cancel</item>
+        <item>character skull</item>
+        <item>character1</item>
+        <item>character2</item>
+        <item>character3</item>
+        <item>character4</item>
+        <item>chart</item>
+        <item>chat</item>
+        <item>chrome</item>
+        <item>clip</item>
+        <item>clock</item>
+        <item>copy</item>
+        <item>denied</item>
+        <item>document</item>
+        <item>download</item>
+        <item>earth</item>
+        <item>email</item>
+        <item>folder</item>
+        <item>home</item>
+        <item>kittcharacter</item>
+        <item>list</item>
+        <item>movie</item>
+        <item>music</item>
+        <item>navigator</item>
+        <item>pen</item>
+        <item>person</item>
+        <item>picture</item>
+        <item>pill</item>
+        <item>power logo</item>
+        <item>plugged</item>
+        <item>unplugged</item>
+        <item>print</item>
+        <item>umbrella</item>
+        <item>refresh</item>
+        <item>RSS</item>
+        <item>save</item>
+        <item>lock</item>
+        <item>unlock</item>
+        <item>settings</item>
+        <item>smile</item>
+        <item>facebook</item>
+        <item>twitter</item>
+        <item>tag</item>
+        <item>trade</item>
+        <item>trash</item>
+        <item>unknown</item>
+        <item>USIM</item>
+        <item>wait</item>
+        <item>warning</item>
+        <item>wifi</item>
+        <item>windows</item>
+        <item>cloud</item>
+        <item>antenna</item>
+    </string-array>
+    
+    <!-- WebView -->
+    <string name="warning_loading_wait">Loading...</string>
+    <string name="msg_rss_update_success">RSS registered</string>
+    <string name="warning_error_while_adding_rss">Error! Cannot register!</string>
+    <string name="button_go">Go</string>
+    
+    <!-- Etc -->
+    <string-array name="message_type_array">
+        <item>UNDEFINED</item>
+        <item>NOTIFICATION</item>
+        <item>MESSAGING</item>
+        <item>EMERGENCY</item>
+        <item>FEED</item>
+        <!--  Disabled: 
+        <item>SMS RECEIVED</item>
+         -->
+    </string-array>
+    
+    <string-array name="call_type_array">
+        <item>Call state idle</item>
+        <item>Call received</item>
+    </string-array>
+    
+    <string-array name="rf_type_array">
+        <item>In service</item>
+        <item>Out of service</item>
+        <item>Emergency only</item>
+        <item>Power off</item>
+    </string-array>
+    
+    <string name="batt_type_string">Battery: </string>
+
+</resources>

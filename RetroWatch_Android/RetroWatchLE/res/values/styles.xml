@@ -1,0 +1,113 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    
+    <style name="AppTheme.ConnectionInfoContainer">
+        <item name="android:background">@color/gray3</item>
+    </style>
+    <style name="AppTheme.ConnectionInfoText">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/graye</item>
+    </style>
+    
+    
+    <!-- Fragment -->
+    <style name="AppTheme.FragmentContainer">
+        <item name="android:background">#FFFFFF</item>
+    </style>
+    
+    <!-- List -->
+    <style name="AppTheme.TwoLineListUpperLineText">
+        <item name="android:textColor">#444444</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="AppTheme.TwoLineListLowerLineText">
+        <item name="android:textColor">#222222</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+    <style name="AppTheme.List">
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:fadingEdgeLength">3dip</item>
+        <item name="android:divider">#FFFFFF</item>
+        <item name="android:dividerHeight">1px</item>
+    </style>
+    
+    <style name="AppTheme.ListItemContainer">
+        <item name="android:background">#EFEFEF</item>
+        <item name="android:paddingBottom">2dip</item>
+    </style>
+    
+    <!-- Input types -->
+    <style name="AppTheme.FormContainer">
+        <item name="android:background">#E0E0E0</item>
+        <item name="android:paddingBottom">2dip</item>
+    </style>
+    
+    <style name="AppTheme.FormSpinner">
+        <item name ="android:textSize">10sp</item>
+        <item name="android:textColor">#3F3F3F</item>
+    </style>
+    
+    <style name="AppTheme.FormText">
+        <item name ="android:textSize">12sp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_margin">2dip</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:paddingRight">10dip</item>
+    </style>
+    
+    <style name="AppTheme.FormEditText">
+        <item name ="android:textSize">12sp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_margin">2dip</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:paddingRight">10dip</item>
+        <item name="android:privateImeOptions">defaultInputmode=english;symbol=true</item>
+    </style>
+    
+    <style name="AppTheme.FormURLEditText">
+        <item name ="android:textSize">10sp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_margin">2dip</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:paddingRight">10dip</item>
+        <item name="android:privateImeOptions">defaultInputmode=english;symbol=true</item>
+    </style>
+    
+    <style name="AppTheme.FormButton">
+        <item name ="android:textSize">12sp</item>
+        <item name="android:textColor">#EFEFEF</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_margin">4dip</item>
+        <item name ="android:padding">0dip</item>
+        <item name="android:background">@drawable/form_button_selector</item>
+    </style>
+    
+    <style name="AppTheme.FormURLButton">
+        <item name ="android:textSize">12sp</item>
+        <item name="android:textColor">#EFEFEF</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_margin">4dip</item>
+        <item name ="android:padding">0dip</item>
+        <item name="android:background">@drawable/form_button_selector</item>
+    </style>
+    
+    
+</resources>

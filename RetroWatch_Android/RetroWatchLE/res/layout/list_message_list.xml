@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/msg_item_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/AppTheme.ListItemContainer" >
+    
+    <TextView 
+        android:id="@+id/msg_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dip"
+        android:paddingLeft="10dip"
+        android:paddingRight="5dip"
+        android:paddingBottom="0dip"
+        style="@style/AppTheme.TwoLineListUpperLineText" />
+    
+    <TextView 
+        android:id="@+id/msg_origin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dip"
+        android:paddingLeft="10dip"
+        android:paddingRight="5dip"
+        android:paddingBottom="0dip"
+        style="@style/AppTheme.TwoLineListUpperLineText" />
+        
+    <TextView 
+        android:id="@+id/msg_converted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dip"
+        android:paddingLeft="10dip"
+        android:paddingRight="5dip"
+        android:paddingBottom="0dip"
+        style="@style/AppTheme.TwoLineListLowerLineText" />
+
+</LinearLayout>

@@ -1,0 +1,101 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/AppTheme.FragmentContainer"
+    tools:context=".RetroWatchActivity$WatchControlFragment" >
+
+    <LinearLayout 
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:orientation="vertical"
+    	android:gravity="top">
+    	
+	    <LinearLayout 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:orientation="horizontal"
+	    	android:gravity="top">
+	    	<TextView
+	        	android:id="@+id/text_email_title"
+	        	android:layout_width="0dip"
+	        	android:layout_weight="6"
+	        	android:layout_height="wrap_content"
+	        	android:text="@string/email_field_title"
+	        	style="@style/AppTheme.FormText" />
+		    <EditText 
+		        android:id="@+id/edit_email_addr"
+		    	android:layout_width="0dip" 
+	    		android:layout_height="wrap_content"
+	    		android:hint="@string/email_addr_hint"
+	    		android:layout_weight="4"
+	    		style="@style/AppTheme.FormEditText" />
+		</LinearLayout>
+		
+	    <!-- TODO: Disabled -->
+	    <LinearLayout 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:orientation="horizontal"
+	    	android:gravity="top"
+	    	android:visibility="gone">
+	    	<TextView
+	        	android:id="@+id/text_update_time"
+	        	android:layout_width="0dip"
+	        	android:layout_weight="6"
+	        	android:layout_height="wrap_content"
+	        	android:text="@string/update_time_title"
+	        	style="@style/AppTheme.FormText" />
+		    <EditText 
+		        android:id="@+id/edit_update_time"
+		    	android:layout_width="0dip" 
+	    		android:layout_height="wrap_content"
+	    		android:layout_weight="4"
+	    		android:inputType="number"
+	    		style="@style/AppTheme.FormEditText" />
+		</LinearLayout>
+		
+	    <LinearLayout 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:orientation="horizontal"
+	    	android:gravity="top">
+	    	<TextView
+	        	android:id="@+id/text_clock_style"
+	        	android:layout_width="0dip"
+	        	android:layout_weight="6"
+	        	android:layout_height="wrap_content"
+	        	android:text="@string/clock_style_title"
+	        	style="@style/AppTheme.FormText" />
+		    <Spinner 
+		        android:id="@+id/spinner_clock_style" 
+		        android:layout_width="0dip" 
+		        android:layout_height="wrap_content"
+		        android:layout_weight="4"
+		        style="@style/AppTheme.FormSpinner" />
+		</LinearLayout>
+	    
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="top">
+            <TextView
+                android:id="@+id/text_show_indicator"
+                android:layout_width="0dip"
+                android:layout_weight="6"
+                android:layout_height="wrap_content"
+                android:text="@string/clock_indicator_title"
+                style="@style/AppTheme.FormText" />
+            <Spinner 
+                android:id="@+id/spinner_show_indicator" 
+                android:layout_width="0dip" 
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                style="@style/AppTheme.FormSpinner" />
+        </LinearLayout>
+	    
+   	</LinearLayout>
+
+</FrameLayout>
