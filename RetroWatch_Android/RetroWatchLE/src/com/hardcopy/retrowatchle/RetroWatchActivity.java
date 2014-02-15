@@ -90,7 +90,7 @@ public class RetroWatchActivity extends FragmentActivity implements ActionBar.Ta
 		super.onCreate(savedInstanceState);
 		
 		//----- System, Context
-		mContext = getApplicationContext();
+		mContext = this;//.getApplicationContext();
 		mActivityHandler = new ActivityHandler();
 		
 		setContentView(R.layout.activity_retro_watch);

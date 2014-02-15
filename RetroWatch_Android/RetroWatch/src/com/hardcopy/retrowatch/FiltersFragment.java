@@ -36,7 +36,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -46,9 +45,11 @@ public class FiltersFragment extends Fragment implements OnClickListener, IAdapt
 
 	private static final String TAG = "FiltersFragment";
 	
+	// Context
 	private Context mContext = null;
 	private IFragmentListener mFragmentListener;
 	
+	// View
 	private ListView mListFilter = null;
 	private FiltersAdapter mFiltersAdapter = null;
 	private Spinner mSpinnerFilterType = null;
@@ -61,6 +62,7 @@ public class FiltersFragment extends Fragment implements OnClickListener, IAdapt
 	private Button mButtonAdd = null;
 	private Button mButtonNew = null;
 	
+	// Data
 	private FilterObject mCurrentFilterObject = null;
 	private ArrayList<FilterObject> mFiltersCache = null;
 	
@@ -86,6 +88,7 @@ public class FiltersFragment extends Fragment implements OnClickListener, IAdapt
 			mFiltersCache = null;
 		}
 		
+		// Filter object type
 		mSpinnerFilterType = (Spinner) rootView.findViewById(R.id.spinner_type);
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(mContext, 
 				R.array.filter_type_array, 
@@ -102,6 +105,7 @@ public class FiltersFragment extends Fragment implements OnClickListener, IAdapt
 			public void onNothingSelected(AdapterView<?> arg0) {}
 		});
 		
+		// Compare type
 		mSpinnerCompareType = (Spinner) rootView.findViewById(R.id.spinner_compare_type);
 		ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(mContext, 
 				R.array.filter_matching_type_array, 
@@ -118,6 +122,7 @@ public class FiltersFragment extends Fragment implements OnClickListener, IAdapt
 			public void onNothingSelected(AdapterView<?> arg0) {}
 		});
 		
+		// Replace method
 		mSpinnerReplaceType = (Spinner) rootView.findViewById(R.id.spinner_replace_type);
 		ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(mContext, 
 				R.array.filter_replace_type_array, 
@@ -134,11 +139,12 @@ public class FiltersFragment extends Fragment implements OnClickListener, IAdapt
 			public void onNothingSelected(AdapterView<?> arg0) {}
 		});
 		
+		// Icon
 		mSpinnerIconType = (Spinner) rootView.findViewById(R.id.spinner_icon_type);
 		ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(mContext, 
 				R.array.filter_icon_type_array, 
 				R.layout.spinner_simple_item2);
-		adapter3.setDropDownViewResource(R.layout.spinner_dropdown_simple_item);
+		adapter4.setDropDownViewResource(R.layout.spinner_dropdown_simple_item);
 		mSpinnerIconType.setPrompt(mContext.getString(R.string.filter_icon));
 		mSpinnerIconType.setAdapter(adapter4);
 		mSpinnerIconType.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -258,7 +264,9 @@ public class FiltersFragment extends Fragment implements OnClickListener, IAdapt
 	}
 	
 	
-	
+	/**
+	 * Make a filter instance and initialize input field
+	 */
 	private void makeDefaultFilterObject() {
 		mCurrentFilterObject = new FilterObject();
 		setFilterInfoOnWidget(mCurrentFilterObject);
@@ -268,6 +276,10 @@ public class FiltersFragment extends Fragment implements OnClickListener, IAdapt
 		mButtonDelete.setEnabled(false);
 	}
 	
+	/**
+	 * Fill input field with specified filter object
+	 * @param filter	filter object
+	 */
 	private void setFilterInfoOnWidget(FilterObject filter) {
 		mSpinnerFilterType.setSelection(filter.mType);
 		mSpinnerCompareType.setSelection(filter.mCompareType);
@@ -288,7 +300,10 @@ public class FiltersFragment extends Fragment implements OnClickListener, IAdapt
 	}
 	
 	
-	
+	/**
+	 * User selected a filter from list
+	 * @param filter	selected filter object
+	 */
 	public void selectFilter(FilterObject filter) {
 		filter.copyTo(mCurrentFilterObject);
 		setFilterInfoOnWidget(mCurrentFilterObject);
@@ -297,6 +312,10 @@ public class FiltersFragment extends Fragment implements OnClickListener, IAdapt
 		mButtonDelete.setEnabled(true);
 	}
 	
+	/**
+	 * Add filter to list adapter.
+	 * @param object	filter object to add
+	 */
 	public void addFilter(FilterObject object) {
 		if(object != null && mFiltersAdapter != null) {
 			mFiltersAdapter.addFilter(object);
@@ -306,6 +325,10 @@ public class FiltersFragment extends Fragment implements OnClickListener, IAdapt
 		}
 	}
 	
+	/**
+	 * Add all filters to list adapter.
+	 * @param objList	Array list of filter object
+	 */
 	public void addFilterAll(ArrayList<FilterObject> objList) {
 		if(mFiltersAdapter == null) {
 			mFiltersCache = objList;
@@ -317,6 +340,10 @@ public class FiltersFragment extends Fragment implements OnClickListener, IAdapt
 		}
 	}
 	
+	/**
+	 * Edit current editing filter object with user input
+	 * @param object	filter object with user input
+	 */
 	public void editFilter(FilterObject object) {
 		if(object != null && mFiltersAdapter != null) {
 			mFiltersAdapter.editFilter(object);
@@ -326,6 +353,10 @@ public class FiltersFragment extends Fragment implements OnClickListener, IAdapt
 		}
 	}
 	
+	/**
+	 * Delete selected filter object
+	 * @param id	filter object's ID
+	 */
 	public void deleteFilter(int id) {
 		mFiltersAdapter.deleteFilter(id);
 		mFiltersAdapter.notifyDataSetChanged();
@@ -333,6 +364,9 @@ public class FiltersFragment extends Fragment implements OnClickListener, IAdapt
 			makeDefaultFilterObject();		// Make new filter object and set data on widget
 	}
 	
+	/**
+	 * Clear list
+	 */
 	public void deleteFilterAll() {
 		mFiltersAdapter.deleteFilterAll();
 		mFiltersAdapter.notifyDataSetChanged();

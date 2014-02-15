@@ -198,6 +198,12 @@
     <string name="warning_error_while_adding_rss">Error! Cannot register!</string>
     <string name="button_go">Go</string>
     
+    <!-- Dialog -->
+    <string name="enable_message">Enable selected message only</string>
+    <string name="enable_package">Enable this app\'s message all</string>
+    <string name="close">Close</string>
+    <string name="text_enabled">Selected message is enabled already. If you want to disable this message, move to Filter tab and delete filter.</string>
+    
     <!-- Etc -->
     <string-array name="message_type_array">
         <item>UNDEFINED</item>

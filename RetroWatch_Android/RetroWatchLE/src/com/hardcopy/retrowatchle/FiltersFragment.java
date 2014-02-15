@@ -144,7 +144,7 @@ public class FiltersFragment extends Fragment implements OnClickListener, IAdapt
 		ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(mContext, 
 				R.array.filter_icon_type_array, 
 				R.layout.spinner_simple_item2);
-		adapter3.setDropDownViewResource(R.layout.spinner_dropdown_simple_item);
+		adapter4.setDropDownViewResource(R.layout.spinner_dropdown_simple_item);
 		mSpinnerIconType.setPrompt(mContext.getString(R.string.filter_icon));
 		mSpinnerIconType.setAdapter(adapter4);
 		mSpinnerIconType.setOnItemSelectedListener(new OnItemSelectedListener() {

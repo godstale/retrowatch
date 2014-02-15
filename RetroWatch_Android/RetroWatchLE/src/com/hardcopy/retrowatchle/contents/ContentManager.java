@@ -241,6 +241,9 @@ public class ContentManager {
 					switch(filter.mCompareType) {
 					case FilterObject.MATCHING_TYPE_WHOLE_WORD:
 						if(strPackage.compareToIgnoreCase(filter.mOriginalString) == 0) {
+							/*
+							 * Disabled
+							 * 
 							// Exactly same string. so replace with filter's string.
 							if(filter.mReplaceString == null || filter.mReplaceString.isEmpty()) {
 								strResult = "";
@@ -248,6 +251,22 @@ public class ContentManager {
 								strResult = filter.mReplaceString;
 								mFilterIcon = filter.mIconType;
 								isFound = true;
+							}
+							*/
+							if(filter.mReplaceType == FilterObject.REPLACE_TYPE_SAME_PART) {
+								// Package matching supports 'Replace all' option only
+								//strResult = strResult.replaceAll(filter.mOriginalString, 
+								//		(filter.mReplaceString == null || filter.mReplaceString.isEmpty()) ? "" : filter.mReplaceString );
+								mFilterIcon = filter.mIconType;
+								isFound = true;
+							} else if(filter.mReplaceType == FilterObject.REPLACE_TYPE_ALL) {
+								if(filter.mReplaceString == null || filter.mReplaceString.isEmpty()) {
+									strResult = "";
+								} else {
+									strResult = filter.mReplaceString;
+									mFilterIcon = filter.mIconType;
+									isFound = true;
+								}
 							}
 						}
 						break;

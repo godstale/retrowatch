@@ -697,9 +697,9 @@ public class RetroWatchService extends Service implements IContentManagerListene
 			case BluetoothManager.MESSAGE_TOAST:
 				Logs.d(TAG, "Service - MESSAGE_TOAST: ");
 				
-				Toast.makeText(getApplicationContext(), 
-						msg.getData().getString(Constants.SERVICE_HANDLER_MSG_KEY_TOAST), 
-						Toast.LENGTH_SHORT).show();
+//				Toast.makeText(getApplicationContext(), 
+//						msg.getData().getString(Constants.SERVICE_HANDLER_MSG_KEY_TOAST), 
+//						Toast.LENGTH_SHORT).show();
 				break;
 				
 			}	// End of switch(msg.what)

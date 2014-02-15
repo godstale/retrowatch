@@ -198,6 +198,12 @@
     <string name="warning_error_while_adding_rss">에러! 등록할 수 없습니다!</string>
     <string name="button_go">Go</string>
     
+    <!-- Dialog -->
+    <string name="enable_message">선택한 메시지만 활성화</string>
+    <string name="enable_package">선택한 앱의 메시지 모두를 활성화</string>
+    <string name="close">닫기</string>
+    <string name="text_enabled">이미 활성화 된 메시지입니다. 메시지를 삭제하고 싶으시면 필터탭으로 이동해서 해당하는 필터를 삭제하세요.</string>
+    
     <!-- Etc -->
     <string-array name="message_type_array">
         <item>UNDEFINED</item>

@@ -32,7 +32,7 @@ import android.widget.ListView;
 /**
  * This fragment shows messages to be sent to watch.
  */
-public class MessageListFragment extends Fragment {
+public class MessageListFragment extends Fragment implements IAdapterListener {
 
 	private static final String TAG = "MessageListFragment";
 	
@@ -56,9 +56,21 @@ public class MessageListFragment extends Fragment {
 		mListMessage = (ListView) rootView.findViewById(R.id.list_message);
 		if(mMessageListAdapter == null)
 			mMessageListAdapter = new MessageListAdapter(mContext, R.layout.list_message_list, null);
+		mMessageListAdapter.setAdapterParams(this);
 		mListMessage.setAdapter(mMessageListAdapter);
 		
 		return rootView;
+	}
+	
+	@Override
+	public void OnAdapterCallback(int msgType, int arg0, int arg1, String arg2, String arg3, Object arg4) {
+		switch(msgType) {
+		case IAdapterListener.CALLBACK_ADD_MESSAGE_FILTER:
+		case IAdapterListener.CALLBACK_ADD_PACKAGE_FILTER:
+			if(arg4 != null)
+				mFragmentListener.OnFragmentCallback(IFragmentListener.CALLBACK_REQUEST_ADD_FILTER, 0, 0, null, null, arg4);
+			break;
+		}
 	}
 	
 	public void addMessage(ContentObject object) {

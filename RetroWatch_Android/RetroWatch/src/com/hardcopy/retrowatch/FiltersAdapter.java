@@ -147,7 +147,10 @@ public class FiltersAdapter extends ArrayAdapter<FilterObject> {
 		return v;
 	}	// End of getView()
 	
-	
+	/**
+	 * Sometimes onClick listener misses event.
+	 * Uses touch listener instead.
+	 */
 	private OnTouchListener mListItemTouchListener = new OnTouchListener() {
 		private float startx = 0;
 		private float starty = 0;
@@ -167,6 +170,10 @@ public class FiltersAdapter extends ArrayAdapter<FilterObject> {
 		}
 	};	// End of new OnTouchListener
 	
+	/**
+	 * Process click event
+	 * @param v		Clicked view
+	 */
 	private void processOnClickEvent(View v) {
 		switch(v.getId())
 		{
@@ -178,6 +185,9 @@ public class FiltersAdapter extends ArrayAdapter<FilterObject> {
 		}	// End of switch()
 	}
 	
+	/**
+	 * Hold every child view of each list item.
+	 */
 	public class ViewHolder {
 		public int mPosition = -1;
 		public LinearLayout mLayoutContainer = null;

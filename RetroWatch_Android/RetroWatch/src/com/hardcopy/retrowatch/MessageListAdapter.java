@@ -19,6 +19,7 @@ package com.hardcopy.retrowatch;
 import java.util.ArrayList;
 
 import com.hardcopy.retrowatch.contents.objects.ContentObject;
+import com.hardcopy.retrowatch.contents.objects.FilterObject;
 import com.hardcopy.retrowatch.utils.Utils;
 
 import android.content.Context;
@@ -31,13 +32,13 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class MessageListAdapter extends ArrayAdapter<ContentObject> {
+public class MessageListAdapter extends ArrayAdapter<ContentObject> implements IDialogListener {
 
 	public static final String TAG = "MessageListAdapter";
 	
 	private Context mContext = null;
 	private ArrayList<ContentObject> mMessageList = null;
-	
+	private IAdapterListener mAdapterListener = null;
 	
 	public MessageListAdapter(Context c, int resId, ArrayList<ContentObject> itemList) {
 		super(c, resId, itemList);
@@ -48,6 +49,9 @@ public class MessageListAdapter extends ArrayAdapter<ContentObject> {
 			mMessageList = itemList;
 	}
 	
+	public void setAdapterParams(IAdapterListener l) {
+		mAdapterListener = l;
+	}
 	
 	public void addMessage(ContentObject co) {
 		mMessageList.add(co);
@@ -117,6 +121,7 @@ public class MessageListAdapter extends ArrayAdapter<ContentObject> {
 			holder = new ViewHolder();
 			
 			holder.mItemContainer = (LinearLayout) v.findViewById(R.id.msg_item_container);
+			holder.mItemContainer.setOnTouchListener(mListItemTouchListener);
 			holder.mTextInfo = (TextView) v.findViewById(R.id.msg_info);
 			holder.mTextOrigin = (TextView) v.findViewById(R.id.msg_origin);
 			holder.mTextConverted = (TextView) v.findViewById(R.id.msg_converted);
@@ -125,6 +130,8 @@ public class MessageListAdapter extends ArrayAdapter<ContentObject> {
 		} else {
 			holder = (ViewHolder) v.getTag();
 		}
+		
+		holder.mContentObject = co;
 		
 		if (co != null && holder != null) {
 			if(co.mIsEnabled)
@@ -148,7 +155,54 @@ public class MessageListAdapter extends ArrayAdapter<ContentObject> {
 		return v;
 	}	// End of getView()
 	
+	@Override
+	public void OnDialogCallback(int msgType, int arg0, int arg1, String arg2, String arg3, Object arg4) {
+		switch(msgType) {
+		case IDialogListener.CALLBACK_ENABLE_MESSAGE:
+			if(arg4 != null) {
+				ContentObject co = (ContentObject) arg4;
+				FilterObject filter = new FilterObject();
+				
+				filter.mType = FilterObject.FILTER_TYPE_ALL;
+				filter.mCompareType = FilterObject.MATCHING_TYPE_WHOLE_WORD;
+				filter.mReplaceType = FilterObject.REPLACE_TYPE_ALL;
+				filter.mOriginalString = co.mOriginalString;
+				filter.mReplaceString = co.mFilteredString;
+				filter.mIconType = 0;
+				
+				if(mAdapterListener != null) {
+					mAdapterListener.OnAdapterCallback(IAdapterListener.CALLBACK_ADD_MESSAGE_FILTER, 0, 0, null, null, filter);
+				}
+			}
+			break;
+			
+		case IDialogListener.CALLBACK_ENABLE_PACKAGE:
+			if(arg4 != null) {
+				ContentObject co = (ContentObject) arg4;
+				FilterObject filter = new FilterObject();
+				
+				filter.mType = FilterObject.FILTER_TYPE_PACKAGE_NAME;
+				filter.mCompareType = FilterObject.MATCHING_TYPE_WHOLE_WORD;
+				filter.mReplaceType = FilterObject.REPLACE_TYPE_ALL;
+				filter.mOriginalString = co.mPackageName;
+				filter.mReplaceString = co.mOriginalString;
+				filter.mIconType = 0;
+				
+				if(mAdapterListener != null) {
+					mAdapterListener.OnAdapterCallback(IAdapterListener.CALLBACK_ADD_PACKAGE_FILTER, 0, 0, null, null, filter);
+				}
+			}
+			break;
+			
+		case IDialogListener.CALLBACK_CLOSE:
+			break;
+		}
+	}
 	
+	/**
+	 * Sometimes onClick listener misses event.
+	 * Uses touch listener instead.
+	 */
 	private OnTouchListener mListItemTouchListener = new OnTouchListener() {
 		private float startx = 0;
 		private float starty = 0;
@@ -171,8 +225,16 @@ public class MessageListAdapter extends ArrayAdapter<ContentObject> {
 	private void processOnClickEvent(View v) {
 		switch(v.getId())
 		{
-//			case R.id.layout_item_row_container:
-//				break;
+			case R.id.msg_item_container:
+				if(v.getTag() == null)
+					break;
+				ContentObject co = ((ViewHolder)v.getTag()).mContentObject;
+				if(co != null) {
+					MessageListDialog dialog = new MessageListDialog(mContext);
+					dialog.setDialogParams(this, null, co);
+					dialog.show();
+				}
+				break;
 		}	// End of switch()
 	}
 	
@@ -181,6 +243,8 @@ public class MessageListAdapter extends ArrayAdapter<ContentObject> {
 		public TextView mTextInfo = null;
 		public TextView mTextOrigin = null;
 		public TextView mTextConverted = null;
+		
+		public ContentObject mContentObject = null;
 	}
 	
 }

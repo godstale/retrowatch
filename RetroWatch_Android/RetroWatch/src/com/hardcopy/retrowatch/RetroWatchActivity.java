@@ -90,7 +90,7 @@ public class RetroWatchActivity extends FragmentActivity implements ActionBar.Ta
 		super.onCreate(savedInstanceState);
 		
 		//----- System, Context
-		mContext = getApplicationContext();
+		mContext = this;//.getApplicationContext();
 		mActivityHandler = new ActivityHandler();
 		
 		setContentView(R.layout.activity_retro_watch);
@@ -217,7 +217,6 @@ public class RetroWatchActivity extends FragmentActivity implements ActionBar.Ta
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();		// TODO: Disable this line to run below code
-		// TODO: Prevent app termination.
 	}
 	
 	@Override
