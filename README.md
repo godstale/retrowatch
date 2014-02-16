@@ -11,7 +11,7 @@ Retro watch is open source smart watch project using Arduino and Android.
 [RetroWatch 안드로이드 앱 사용방법](http://www.hardcopyworld.com/ngine/android/index.php/archives/192)
 
 
-[How-To: Make your own smart watch (ENG)](https://github.com/godstale/retrowatch/wiki/%22How-To:-Make-your-own-smart-watch%22) - translated by Chang-Han Jeon.
+[How-To: Make your own smart watch (ENG)](http://www.hardcopyworld.com/ngine/aduino/index.php/archives/670) - translated by Chang-Han Jeon.
 
 
 ==========
