@@ -183,7 +183,7 @@ public class MessageListAdapter extends ArrayAdapter<ContentObject> implements I
 				
 				filter.mType = FilterObject.FILTER_TYPE_PACKAGE_NAME;
 				filter.mCompareType = FilterObject.MATCHING_TYPE_WHOLE_WORD;
-				filter.mReplaceType = FilterObject.REPLACE_TYPE_ALL;
+				filter.mReplaceType = FilterObject.REPLACE_TYPE_SAME_PART;
 				filter.mOriginalString = co.mPackageName;
 				filter.mReplaceString = co.mOriginalString;
 				filter.mIconType = 0;
