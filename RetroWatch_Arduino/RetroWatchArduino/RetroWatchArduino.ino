@@ -440,6 +440,7 @@ void processTransaction() {
     msgParsingLine++;
     if(msgParsingLine >= MSG_COUNT_MAX)
       msgParsingLine = 0;
+    setNextDisplayTime(millis(), 0);  // update screen immediately
   }
   else if(TR_COMMAND == CMD_TYPE_ADD_EMERGENCY_OBJ) {
     emgBuffer[emgParsingLine][0] = 0x01;
@@ -458,6 +459,10 @@ void processTransaction() {
   else if(TR_COMMAND == CMD_TYPE_SET_TIME) {
     setTimeValue();
     timeParsingIndex = 0;
+    setNextDisplayTime(millis(), 0);  // update screen immediately
+  }
+  if(TR_COMMAND == CMD_TYPE_SET_CLOCK_STYLE || CMD_TYPE_SET_INDICATOR) {
+    setNextDisplayTime(millis(), 0);  // update screen immediately
   }
 }
 
