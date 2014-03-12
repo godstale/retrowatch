@@ -717,7 +717,6 @@ public class ContentManager {
 		mContentManagerListener.OnContentCallback(IContentManagerListener.CALLBACK_GMAIL_UPDATED, 0, 0, null, null, obj);
 	}
 	
-	@Deprecated
 	public synchronized ContentObject addSMSObject(int count) {
 		ContentObject obj = null;
 		

@@ -186,6 +186,11 @@ public class RetroWatchService extends Service implements IContentManagerListene
 		iFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
 		registerReceiver(mBatteryInfoReceiver, iFilter);
 		
+		// Set SMS listener
+		IntentFilter smsFilter = new IntentFilter();
+		smsFilter.addAction("android.provider.Telephony.SMS_RECEIVED");
+		registerReceiver(mSmsListener, smsFilter);
+		
 		// Set telephony listener
 		TelephonyStateListener telephonyListener = new TelephonyStateListener();
 		TelephonyManager telephony = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
@@ -769,12 +774,15 @@ public class RetroWatchService extends Service implements IContentManagerListene
 		
 	}	// End of class NotificationReceiver
 	
+	
+	public SmsListener mSmsListener = new SmsListener();
 	public class SmsListener extends BroadcastReceiver{
+		public SmsListener() {
+			super();
+		}
+		
 		@Override
 		public void onReceive(Context context, Intent intent) {
-			/*
-			 * Disabled: Use new SMS notification instead
-			 *
 			if(intent.getAction().equals("android.provider.Telephony.SMS_RECEIVED")){
 				Bundle bundle = intent.getExtras();           //---get the SMS message passed in---
 				SmsMessage[] msgs = null;
@@ -788,7 +796,7 @@ public class RetroWatchService extends Service implements IContentManagerListene
 							if(co != null) {
 								mActivityHandler.obtainMessage(Constants.MESSAGE_SMS_RECEIVED, (Object)co).sendToTarget();
 								// send to device
-								sendContentsToDevice(obj);
+								sendContentsToDevice(co);
 							}
 						}
 						
@@ -803,8 +811,7 @@ public class RetroWatchService extends Service implements IContentManagerListene
 					}
 				}
 			}
-			*
-			*/
+			
 		}	// End of onReceive()
 	}
 	

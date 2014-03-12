@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hardcopy.retrowatchle"
-    android:versionCode="4"
-    android:versionName="1.0.3" >
+    android:versionCode="6"
+    android:versionName="1.0.5" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -58,12 +58,6 @@
             android:configChanges="keyboardHidden|orientation|screenSize" >
         </service> 
         
-        <!-- Broadcast receiver -->
-        <receiver android:name="com.hardcopy.retrowatchle.service.SmsListener">
-            <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-            </intent-filter>
-        </receiver>
         
     </application>
 

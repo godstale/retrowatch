@@ -780,7 +780,7 @@ public class RetroWatchService extends Service implements IContentManagerListene
 							if(co != null) {
 								mActivityHandler.obtainMessage(Constants.MESSAGE_SMS_RECEIVED, (Object)co).sendToTarget();
 								// send to device
-								sendContentsToDevice(obj);
+								sendContentsToDevice(co);
 							}
 						}
 						
