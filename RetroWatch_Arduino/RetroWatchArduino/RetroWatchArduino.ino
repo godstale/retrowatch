@@ -26,7 +26,7 @@ Written by Suh Young Bae (godstale@hotmail.com)
 All text above, and the first splash screen(Adafruit) must be included in any redistribution
 */
 
-#include <avr/pgmspace.h>
+//#include <avr/pgmspace.h>
 #include <Wire.h>
 #include <SoftwareSerial.h>
 #include <Adafruit_GFX.h>
