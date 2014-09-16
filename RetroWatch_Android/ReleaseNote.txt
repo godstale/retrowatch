@@ -6,3 +6,13 @@ RetroWatch Android v1.0.6
 - Delete pre-defined RSS feed
 
 
+#v1.0.5 updated!
+- Fix fatal error when receives SMS message
+
+#v1.0.3 updated!
+- When user select "Enable this app's message all" at message list tab, it doesn't change original message.
+
+# v1.0.2 updated!
+- Fix sync problem when text size is bigger than max
+- Add direct enable menu on Message Tab. (Shows enable menu when tapping on each message)
+- Fix minor issues
