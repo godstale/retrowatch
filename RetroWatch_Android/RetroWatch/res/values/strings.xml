@@ -72,6 +72,7 @@
     <!-- Settings string -->
     <string name="email_field_title">Type your Gmail address</string>
     <string name="email_addr_hint">aaa@gmail.com</string>
+    <string name="settings_background_service">Run in background</string>
     <string name="clock_style_title">Watch clock style</string>
     <string-array name="clock_style_array">
         <item>Select style</item>

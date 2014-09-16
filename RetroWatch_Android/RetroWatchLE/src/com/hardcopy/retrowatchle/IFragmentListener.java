@@ -30,6 +30,7 @@ public interface IFragmentListener {
 	public static final int CALLBACK_REQUEST_SET_EMAIL_ADDRESS = 21;
 	public static final int CALLBACK_REQUEST_CLOCK_STYLE = 23;
 	public static final int CALLBACK_REQUEST_SHOW_INDICATOR = 24;
+	public static final int CALLBACK_REQUEST_RUN_IN_BACKGROUND = 25;
 	
 	public void OnFragmentCallback(int msgType, int arg0, int arg1, String arg2, String arg3, Object arg4);
 }

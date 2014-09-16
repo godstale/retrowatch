@@ -34,6 +34,7 @@ import com.hardcopy.retrowatchle.contents.objects.EmergencyObject;
 import com.hardcopy.retrowatchle.contents.objects.FilterObject;
 import com.hardcopy.retrowatchle.utils.Constants;
 import com.hardcopy.retrowatchle.utils.Logs;
+import com.hardcopy.retrowatchle.utils.Settings;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -214,6 +215,9 @@ public class RetroWatchService extends Service implements IContentManagerListene
 				setupBT();
 			}
 		}
+		
+		// Start service monitoring
+		startServiceMonitoring();
 	}
 	
 	/**
@@ -618,6 +622,18 @@ public class RetroWatchService extends Service implements IContentManagerListene
 	
 	public void setGmailAddress(String gmailAddr) {
 		mContentManager.setGmailAddress(gmailAddr);
+	}
+	
+	/**
+	 * Start service monitoring. Service monitoring prevents
+	 * unintended close of service.
+	 */
+	public void startServiceMonitoring() {
+		if(Settings.getInstance(mContext).getRunInBackground()) {
+			ServiceMonitoring.startMonitoring(mContext);
+		} else {
+			ServiceMonitoring.stopMonitoring(mContext);
+		}
 	}
 	
 	

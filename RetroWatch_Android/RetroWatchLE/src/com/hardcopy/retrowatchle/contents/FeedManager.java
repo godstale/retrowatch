@@ -977,9 +977,9 @@ public class FeedManager {
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://tistory.com/category/issue/rss";
-		temp.mName = "티스토리 새글 - 이슈";
+		temp.mName = "?�스?�리 ?��? - ?�슈";
 		temp.mLink = "http://tistory.com";
-		temp.mDescription = "[일반] 티스토리 새글 - 이슈";
+		temp.mDescription = "[?�반] ?�스?�리 ?��? - ?�슈";
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 2*60*60;
 		temp.mVisible = true;
@@ -993,9 +993,9 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://api.sbs.co.kr/xml/news/rss.jsp?pmDiv=entertainment";
-//		temp.mName = "SBS NEWS 연예";
+//		temp.mName = "SBS NEWS ?�예";
 //		temp.mLink = "http://sbs.co.kr";
-//		temp.mDescription = "[연예] SBS 뉴스 - 연예";
+//		temp.mDescription = "[?�예] SBS ?�스 - ?�예";
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 2*60*60;
 //		temp.mVisible = true;
@@ -1009,9 +1009,9 @@ public class FeedManager {
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://bbs.danawa.com/RSS/rss2.0.php?nSiteC=22";
-		temp.mName = "다나와 뉴스 - 문화 생활 패션";
+		temp.mName = "?�나?� ?�스 - 문화 ?�활 ?�션";
 		temp.mLink = "http://danawa.com";
-		temp.mDescription = "[문화] [생활] [패션] 다나와 뉴스 입니다.";
+		temp.mDescription = "[문화] [?�활] [?�션] ?�나?� ?�스 ?�니??";
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 2*60*60;
 		temp.mVisible = true;
@@ -1025,9 +1025,9 @@ public class FeedManager {
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://nbiz.heraldcorp.com/common_prog/rssdisp.php?ct=010500000000.xml";
-		temp.mName = "헤럴드경제 라이프";
+		temp.mName = "?�럴?�경???�이??;
 		temp.mLink = "http://heraldcorp.com/";
-		temp.mDescription = "[문화] [생활] 헤럴드경제 라이프";
+		temp.mDescription = "[문화] [?�활] ?�럴?�경???�이??;
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 2*60*60;
 		temp.mVisible = true;
@@ -1041,9 +1041,9 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://blog.rss.naver.com/jheui13.xml";
-//		temp.mName = "베비로즈의 cooking and living";
+//		temp.mName = "베비로즈??cooking and living";
 //		temp.mLink = "http://blog.rss.naver.com/jheui13.xml";
-//		temp.mDescription = "[요리] 베비로즈의 cooking and living";
+//		temp.mDescription = "[?�리] 베비로즈??cooking and living";
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 12*60*60;
 //		temp.mVisible = true;
@@ -1057,9 +1057,9 @@ public class FeedManager {
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://tistory.com/category/travel/rss";
-		temp.mName = "티스토리 새글 - 여행";
+		temp.mName = "?�스?�리 ?��? - ?�행";
 		temp.mLink = "http://tistory.com";
-		temp.mDescription = "[여행] 티스토리 새글 - 여행";
+		temp.mDescription = "[?�행] ?�스?�리 ?��? - ?�행";
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 2*60*60;
 		temp.mVisible = true;
@@ -1073,9 +1073,9 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://tistory.com/category/photo/rss";
-//		temp.mName = "티스토리 새글 - 사진";
+//		temp.mName = "?�스?�리 ?��? - ?�진";
 //		temp.mLink = "http://tistory.com";
-//		temp.mDescription = "[사진] 티스토리 새글 - 사진";
+//		temp.mDescription = "[?�진] ?�스?�리 ?��? - ?�진";
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 2*60*60;
 //		temp.mVisible = true;
@@ -1089,9 +1089,9 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://bbs.danawa.com/RSS/rss2.0.php?nSiteC=6";
-//		temp.mName = "다나와 뉴스 - 게임";
+//		temp.mName = "?�나?� ?�스 - 게임";
 //		temp.mLink = "http://danawa.com";
-//		temp.mDescription = "[게임] 다나와 뉴스 입니다.";
+//		temp.mDescription = "[게임] ?�나?� ?�스 ?�니??";
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 2*60*60;
 //		temp.mVisible = true;
@@ -1105,9 +1105,9 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://blog.rss.naver.com/knockya.xml";
-//		temp.mName = "맛찾사의 맛집 이야기";
+//		temp.mName = "맛찾?�의 맛집 ?�야�?;
 //		temp.mLink = "http://naver.com";
-//		temp.mDescription = "[맛집] 맛찾사의 맛집 이야기";
+//		temp.mDescription = "[맛집] 맛찾?�의 맛집 ?�야�?;
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 12*60*60;
 //		temp.mVisible = true;
@@ -1121,9 +1121,9 @@ public class FeedManager {
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://olpost.com/rss/?type=cate_top&value=&period=today&target";
-		temp.mName = "올포스트 종합 - 이 시각 시선집중";
+		temp.mName = "?�포?�트 종합 - ???�각 ?�선집중";
 		temp.mLink = "http://olpost.com/";
-		temp.mDescription = "[일반] 올포스트 종합 - 이 시각 시선집중";
+		temp.mDescription = "[?�반] ?�포?�트 종합 - ???�각 ?�선집중";
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 2*60*60;
 		temp.mVisible = true;
@@ -1137,9 +1137,9 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://khan.feedsportal.com/c/34755/f/640291/index.rss";
-//		temp.mName = "경향신문 스포츠";
+//		temp.mName = "경향?�문 ?�포�?;
 //		temp.mLink = "http://khan.feedsportal.com/";
-//		temp.mDescription = "[스포츠] 경향신문 RSS 서비스 | 스포츠";
+//		temp.mDescription = "[?�포�? 경향?�문 RSS ?�비??| ?�포�?;
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 2*60*60;
 //		temp.mVisible = true;
@@ -1149,8 +1149,6 @@ public class FeedManager {
 //		temp.mDisplayOrder = 23;
 //		temp.mSystemProperty = 1;
 //		mDB.insertCPItem(temp);
-		
-*/
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://feeds.nationalgeographic.com/ng/photography/photo-of-the-day/";
@@ -1168,13 +1166,11 @@ public class FeedManager {
 		temp.mLogoImage = "http://metaversemodsquad.com/wp-content/uploads/2013/03/national-geographic-projects-logo.jpg";
 		mDB.insertCPItem(temp);
 		
-/*
-		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://gdata.youtube.com/feeds/base/standardfeeds/KR/most_viewed?client=ytapi-youtube-browse&alt=rss&time=today";
-		temp.mName = "유튜브 인기 비디오";
+		temp.mName = "?�튜�??�기 비디??;
 		temp.mLink = "http://youtube.com";
-		temp.mDescription = "[동영상] [일반] Most Popular video";
+		temp.mDescription = "[?�영?? [?�반] Most Popular video";
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 4*60*60;
 		temp.mVisible = true;
@@ -1188,7 +1184,7 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://zdnetkorea.feedsportal.com/c/34249/f/622753/index.rss";
-//		temp.mName = "지디넷코리아 - 게임";
+//		temp.mName = "지?�넷코리??- 게임";
 //		temp.mLink = "http://zdnetkorea.feedsportal.com/";
 //		temp.mDescription = "[게임] ZDNet Korea - 게임";
 //		temp.mLastUpdated = 0L;
@@ -1204,9 +1200,9 @@ public class FeedManager {
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://zdnetkorea.feedsportal.com/c/34249/f/622759/index.rss";
-		temp.mName = "지디넷코리아 - 인터넷";
+		temp.mName = "지?�넷코리??- ?�터??;
 		temp.mLink = "http://zdnetkorea.feedsportal.com";
-		temp.mDescription = "[IT] ZDNet Korea - 인터넷";
+		temp.mDescription = "[IT] ZDNet Korea - ?�터??;
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 2*60*60;
 		temp.mVisible = true;
@@ -1220,9 +1216,9 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://rss.kbench.com/kbench.xml";
-//		temp.mName = "케이벤치 전체기사";
+//		temp.mName = "케?�벤�??�체기사";
 //		temp.mLink = "http://rss.kbench.com/kbench.xml";
-//		temp.mDescription = "[뉴스] [IT] 케이벤치 전체기사";
+//		temp.mDescription = "[?�스] [IT] 케?�벤�??�체기사";
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 2*60*60;
 //		temp.mVisible = true;
@@ -1238,7 +1234,7 @@ public class FeedManager {
 		temp.mURL =  "http://feeds.feedburner.com/Bloter";
 		temp.mName = "Bloter.net";
 		temp.mLink = "http://bloter.net";
-		temp.mDescription = "[IT] [뉴스] Bloter.net 블로터닷넷";
+		temp.mDescription = "[IT] [?�스] Bloter.net 블로?�닷??;
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 2*60*60;
 		temp.mVisible = true;
@@ -1252,9 +1248,9 @@ public class FeedManager {
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://feeds.feedburner.com/DesignlogOfMaru?format=xml";
-		temp.mName = "디자인로그";
+		temp.mName = "?�자?�로�?;
 		temp.mLink = "http://feeds.feedburner.com/DesignlogOfMaru?format=xml";
-		temp.mDescription = "[디자인] Design resources, tutorials, tips and Digital trend news";
+		temp.mDescription = "[?�자?? Design resources, tutorials, tips and Digital trend news";
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 6*60*60;
 		temp.mVisible = true;
@@ -1270,7 +1266,7 @@ public class FeedManager {
 //		temp.mURL =  "http://homedesigning.tumblr.com/rss";
 //		temp.mName = "Home Designing";
 //		temp.mLink = "http://homedesigning.tumblr.com/rss";
-//		temp.mDescription = "[디자인] Interior Design + Architecture + Random Awesome Things";
+//		temp.mDescription = "[?�자?? Interior Design + Architecture + Random Awesome Things";
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 2*60*60;
 //		temp.mVisible = true;
@@ -1285,9 +1281,9 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://valley.egloos.com/theme/rss/recent/movie";
-//		temp.mName = "이글루스 영화 테마 최근글";
+//		temp.mName = "?��?루스 ?�화 ?�마 최근글";
 //		temp.mLink = "http://egloos.com";
-//		temp.mDescription = "[영화] 이글루스 영화 테마 최근글";
+//		temp.mDescription = "[?�화] ?��?루스 ?�화 ?�마 최근글";
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 2*60*60;
 //		temp.mVisible = true;
@@ -1301,9 +1297,9 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://v.daum.net/best/rss";
-//		temp.mName = "Daum view 글 베스트";
+//		temp.mName = "Daum view 글 베스??;
 //		temp.mLink = "http://daum.net";
-//		temp.mDescription = "[일반] 다음 view 글 베스트";
+//		temp.mDescription = "[?�반] ?�음 view 글 베스??;
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 2*60*60;
 //		temp.mVisible = true;
@@ -1317,9 +1313,9 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://valley.egloos.com/theme/rss/recent/book";
-//		temp.mName = "이글루스 도서 테마 최근글";
+//		temp.mName = "?��?루스 ?�서 ?�마 최근글";
 //		temp.mLink = "http://egloos.com";
-//		temp.mDescription = "[책] 이글루스 도서 테마 최근글";
+//		temp.mDescription = "[�? ?��?루스 ?�서 ?�마 최근글";
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 2*60*60;
 //		temp.mVisible = true;
@@ -1333,9 +1329,9 @@ public class FeedManager {
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://feeds.feedburner.com/ideakeyword?format=xml";
-		temp.mName = "아이디어 박물관";
+		temp.mName = "?�이?�어 박물관";
 		temp.mLink = "http://feeds.feedburner.com/ideakeyword?format=xml";
-		temp.mDescription = "[광고] [디자인] 매일 매일 두뇌에 신선한 활력을";
+		temp.mDescription = "[광고] [?�자?? 매일 매일 ?�뇌???�선???�력??;
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 6*60*60;
 		temp.mVisible = true;
@@ -1349,9 +1345,9 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://valley.egloos.com/theme/rss/recent/history";
-//		temp.mName = "이글루스 역사 테마 최근글";
+//		temp.mName = "?��?루스 ??�� ?�마 최근글";
 //		temp.mLink = "http://egloos.com";
-//		temp.mDescription = "[문화] 이글루스 역사 테마 최근글";
+//		temp.mDescription = "[문화] ?��?루스 ??�� ?�마 최근글";
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 2*60*60;
 //		temp.mVisible = true;
@@ -1365,9 +1361,9 @@ public class FeedManager {
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://valley.egloos.com/theme/rss/recent/performance";
-		temp.mName = "이글루스 공연 전시 테마 최근글";
+		temp.mName = "?��?루스 공연 ?�시 ?�마 최근글";
 		temp.mLink = "http://egloos.com";
-		temp.mDescription = "[문화] 이글루스 공연 전시 테마 최근글";
+		temp.mDescription = "[문화] ?��?루스 공연 ?�시 ?�마 최근글";
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 2*60*60;
 		temp.mVisible = true;
@@ -1381,9 +1377,9 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://valley.egloos.com/theme/rss/recent/animation";
-//		temp.mName = "이글루스 애니메이션 테마 최근글";
+//		temp.mName = "?��?루스 ?�니메이???�마 최근글";
 //		temp.mLink = "http://egloos.com";
-//		temp.mDescription = "[문화] 이글루스 애니메이션 테마 최근글";
+//		temp.mDescription = "[문화] ?��?루스 ?�니메이???�마 최근글";
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 2*60*60;
 //		temp.mVisible = true;
@@ -1397,9 +1393,9 @@ public class FeedManager {
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://valley.egloos.com/theme/rss/recent/movie";
-		temp.mName = "이글루스 영화 테마 최근글";
+		temp.mName = "?��?루스 ?�화 ?�마 최근글";
 		temp.mLink = "http://egloos.com";
-		temp.mDescription = "[영화] 이글루스 영화 테마 최근글";
+		temp.mDescription = "[?�화] ?��?루스 ?�화 ?�마 최근글";
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 2*60*60;
 		temp.mVisible = true;
@@ -1413,9 +1409,9 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://valley.egloos.com/theme/rss/recent/travel";
-//		temp.mName = "이글루스 여행 테마 최근글";
+//		temp.mName = "?��?루스 ?�행 ?�마 최근글";
 //		temp.mLink = "http://egloos.com";
-//		temp.mDescription = "[여행] 이글루스 여행 테마 최근글";
+//		temp.mDescription = "[?�행] ?��?루스 ?�행 ?�마 최근글";
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 2*60*60;
 //		temp.mVisible = true;
@@ -1429,9 +1425,9 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://extmovie.com/zbxe/?mid=shockimg&act=rss";
-//		temp.mName = "재미 엽기사진";
+//		temp.mName = "?��? ?�기?�진";
 //		temp.mLink = "http://extmovie.com/zbxe/?mid=shockimg&act=rss";
-//		temp.mDescription = "[유머] 재미 엽기사진";
+//		temp.mDescription = "[?�머] ?��? ?�기?�진";
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 2*60*60;
 //		temp.mVisible = true;
@@ -1445,9 +1441,9 @@ public class FeedManager {
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://media.daum.net/syndication/culture.rss";
-		temp.mName = "미디어다음 - 문화/생활Top RSS";
+		temp.mName = "미디?�다??- 문화/?�활Top RSS";
 		temp.mLink = "http://daum.net";
-		temp.mDescription = "[문화] [생활] 미디어다음 - 문화/생활Top RSS";
+		temp.mDescription = "[문화] [?�활] 미디?�다??- 문화/?�활Top RSS";
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 2*60*60;
 		temp.mVisible = true;
@@ -1461,9 +1457,9 @@ public class FeedManager {
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://www.issuebriefing.com/?feed=rss2";
-		temp.mName = "일간지 뉴스 요약 정리";
+		temp.mName = "?�간지 ?�스 ?�약 ?�리";
 		temp.mLink = "http://www.issuebriefing.com";
-		temp.mDescription = "[뉴스] 하루 한 번 업데이트, 하루 뉴스를 요약 제공";
+		temp.mDescription = "[?�스] ?�루 ??�??�데?�트, ?�루 ?�스�??�약 ?�공";
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 12*60*60;
 		temp.mVisible = true;
@@ -1477,9 +1473,9 @@ public class FeedManager {
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://feeds.feedburner.com/terzeron/cstory?format=xml";
-		temp.mName = "네이버영화 - 커버스토리";
+		temp.mName = "?�이버영??- 커버?�토�?;
 		temp.mLink = "http://naver.com";
-		temp.mDescription = "[영화] 네이버영화 - 커버스토리";
+		temp.mDescription = "[?�화] ?�이버영??- 커버?�토�?;
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 4*60*60;
 		temp.mVisible = true;
@@ -1493,9 +1489,9 @@ public class FeedManager {
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://www.oneaday.co.kr/rss.php";
-		temp.mName = "하루에 한가지만 판매 원어데이";
+		temp.mName = "?�루???��?지�??�매 ?�어?�이";
 		temp.mLink = "http://www.oneaday.co.kr";
-		temp.mDescription = "[쇼핑] 하루에 한가지만 판매 원어데이 쇼핑";
+		temp.mDescription = "[?�핑] ?�루???��?지�??�매 ?�어?�이 ?�핑";
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 12*60*60;
 		temp.mVisible = true;
@@ -1509,9 +1505,9 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://feeds.feedburner.com/onedays";
-//		temp.mName = "구루의 지름도우미";
+//		temp.mName = "구루??지름도?��?";
 //		temp.mLink = "http://feeds.feedburner.com/onedays";
-//		temp.mDescription = "[쇼핑] 하루에 한가지 쇼핑몰 한눈에 보기";
+//		temp.mDescription = "[?�핑] ?�루???��?지 ?�핑�??�눈??보기";
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 12*60*60;
 //		temp.mVisible = true;
@@ -1525,9 +1521,9 @@ public class FeedManager {
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://imnews.imbc.com/rss/news/news_00.xml";
-		temp.mName = "MBC뉴스 :: 뉴스(전체)";
+		temp.mName = "MBC?�스 :: ?�스(?�체)";
 		temp.mLink = "http://imbc.com";
-		temp.mDescription = "[뉴스] MBC뉴스 :: 뉴스(전체)";
+		temp.mDescription = "[?�스] MBC?�스 :: ?�스(?�체)";
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 2*60*60;
 		temp.mVisible = true;
@@ -1541,9 +1537,9 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://feeds.feedburner.com/naver_news_popular";
-//		temp.mName = "네이버 가장 많이 본 뉴스";
+//		temp.mName = "?�이�?가??많이 �??�스";
 //		temp.mLink = "http://naver.com";
-//		temp.mDescription = "[뉴스] 네이버 가장 많이 본 뉴스";
+//		temp.mDescription = "[?�스] ?�이�?가??많이 �??�스";
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 2*60*60;
 //		temp.mVisible = true;
@@ -1557,9 +1553,9 @@ public class FeedManager {
 		
 //		temp.mId = 0;			// will be reset by DB
 //		temp.mURL =  "http://blog.rss.naver.com/yummycook.xml";
-//		temp.mName = "요리천사의 행복밥상";
+//		temp.mName = "?�리천사???�복밥상";
 //		temp.mLink = "http://blog.rss.naver.com/yummycook.xml";
-//		temp.mDescription = "[요리] 요리가 세상을 밝게 하는 것을 믿고 요리하는 즐거움에 푹~ 빠졌답니다";
+//		temp.mDescription = "[?�리] ?�리가 ?�상??밝게 ?�는 것을 믿고 ?�리?�는 즐거?�???? 빠졌?�니??;
 //		temp.mLastUpdated = 0L;
 //		temp.mTTL = 12*60*60;
 //		temp.mVisible = true;
@@ -1573,9 +1569,9 @@ public class FeedManager {
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://zdnetkorea.feedsportal.com/c/34249/f/622758/index.rss";
-		temp.mName = "지디넷코리아 - 홈 모바일";
+		temp.mName = "지?�넷코리??- ??모바??;
 		temp.mLink = "http://zdnetkorea.feedsportal.com/c/34249/f/622758/index.rss";
-		temp.mDescription = "[IT] ZDNet Korea - 홈 모바일";
+		temp.mDescription = "[IT] ZDNet Korea - ??모바??;
 		temp.mLastUpdated = 0L;
 		temp.mTTL = 2*60*60;
 		temp.mVisible = true;

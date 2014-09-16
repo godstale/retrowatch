@@ -1,0 +1,6 @@
+
+RetroWatch Arduino v1.0.6
+- Add SPI header. Many user reported that missing SPI header makes compile error.
+
+
+

@@ -1150,8 +1150,6 @@ public class FeedManager {
 //		temp.mSystemProperty = 1;
 //		mDB.insertCPItem(temp);
 		
-*/
-		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://feeds.nationalgeographic.com/ng/photography/photo-of-the-day/";
 		temp.mName = "National Geographic Photo of the Day";
@@ -1167,8 +1165,6 @@ public class FeedManager {
 		temp.mSystemProperty = 1;
 		temp.mLogoImage = "http://metaversemodsquad.com/wp-content/uploads/2013/03/national-geographic-projects-logo.jpg";
 		mDB.insertCPItem(temp);
-		
-/*
 		
 		temp.mId = 0;			// will be reset by DB
 		temp.mURL =  "http://gdata.youtube.com/feeds/base/standardfeeds/KR/most_viewed?client=ytapi-youtube-browse&alt=rss&time=today";

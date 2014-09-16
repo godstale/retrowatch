@@ -27,6 +27,7 @@ All text above, and the first splash screen(Adafruit) must be included in any re
 */
 
 //#include <avr/pgmspace.h>
+#include <SPI.h>
 #include <Wire.h>
 #include <SoftwareSerial.h>
 #include <Adafruit_GFX.h>

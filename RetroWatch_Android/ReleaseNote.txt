@@ -1,0 +1,8 @@
+
+RetroWatch Android v1.0.6
+- Start service again after unintended service kill
+  ServiceMonitoring class checks service status periodically
+- Add "Run in background" menu
+- Delete pre-defined RSS feed
+
+

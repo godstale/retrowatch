@@ -378,6 +378,12 @@ public class RetroWatchActivity extends FragmentActivity implements ActionBar.Ta
 			}
 			break;
 			
+		case IFragmentListener.CALLBACK_REQUEST_RUN_IN_BACKGROUND:
+			if(mService != null) {
+				mService.startServiceMonitoring();
+			}
+			break;
+			
 		default:
 			break;
 		}

@@ -65,5 +65,17 @@ public class Settings {
 		return prefs.getString(Constants.PREFERENCE_KEY_GMAIL_ADDRESS, null);
 	}
 	
+	public synchronized void setRunInBackground(boolean isTrue) {
+		SharedPreferences prefs = mContext.getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = prefs.edit();
+		editor.putBoolean(Constants.PREFERENCE_KEY_RUN_IN_BG, isTrue);
+		editor.commit();
+	}
+	
+	public synchronized boolean getRunInBackground() {
+		SharedPreferences prefs = mContext.getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE);
+		return prefs.getBoolean(Constants.PREFERENCE_KEY_RUN_IN_BG, false);
+	}
+	
 	
 }

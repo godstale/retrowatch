@@ -28,10 +28,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 
 /**
  * This fragment shows user defined message filters.
@@ -44,6 +47,7 @@ public class WatchControlFragment extends Fragment {
 	private EditText mEditGmailAddr = null;
 	private Spinner mSpinnerClockStyle = null;
 	private Spinner mSpinnerIndicator = null;
+	private CheckBox mCheckBackground;
 	
 	private int mPresetClockStyle = -1;
 	private int mPresetIndicator = -1;
@@ -112,6 +116,17 @@ public class WatchControlFragment extends Fragment {
 			}
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {}
+		});
+		
+		// 'Run in background' setting
+		mCheckBackground = (CheckBox) rootView.findViewById(R.id.check_background_service);
+		mCheckBackground.setChecked(Settings.getInstance(mContext).getRunInBackground());
+		mCheckBackground.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				Settings.getInstance(mContext).setRunInBackground(isChecked);
+				mFragmentListener.OnFragmentCallback(IFragmentListener.CALLBACK_REQUEST_RUN_IN_BACKGROUND, 0, 0, null, null,null);
+			}
 		});
 		
 		return rootView;

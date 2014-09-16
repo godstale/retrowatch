@@ -34,6 +34,7 @@ import com.hardcopy.retrowatch.contents.objects.EmergencyObject;
 import com.hardcopy.retrowatch.contents.objects.FilterObject;
 import com.hardcopy.retrowatch.utils.Constants;
 import com.hardcopy.retrowatch.utils.Logs;
+import com.hardcopy.retrowatch.utils.Settings;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -209,6 +210,9 @@ public class RetroWatchService extends Service implements IContentManagerListene
 				setupBT();
 			}
 		}
+		
+		// Start service monitoring
+		startServiceMonitoring();
 	}
 	
 	/**
@@ -377,6 +381,7 @@ public class RetroWatchService extends Service implements IContentManagerListene
 			transaction.sendTransaction();
 		}
 	}
+	
 	
 	
 	/*****************************************************
@@ -613,6 +618,18 @@ public class RetroWatchService extends Service implements IContentManagerListene
 	
 	public void setGmailAddress(String gmailAddr) {
 		mContentManager.setGmailAddress(gmailAddr);
+	}
+	
+	/**
+	 * Start service monitoring. Service monitoring prevents
+	 * unintended close of service.
+	 */
+	public void startServiceMonitoring() {
+		if(Settings.getInstance(mContext).getRunInBackground()) {
+			ServiceMonitoring.startMonitoring(mContext);
+		} else {
+			ServiceMonitoring.stopMonitoring(mContext);
+		}
 	}
 	
 	
