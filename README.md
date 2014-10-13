@@ -18,9 +18,7 @@ Retro watch is open source smart watch project using Arduino and Android.
 ==========
 Do you want to post feedback, bugreport, suggestion or question? Use below links:
 
-[Forum: ](http://www.hardcopyworld.com/ngine/index.php/board/free-board)
-
-[QnA: ](http://www.hardcopyworld.com/ngine/index.php/board/qna)
+[QnA: ](http://www.hardcopyworld.com/gnuboard5/bbs/board.php?bo_table=qna)
 
 Email : godstale@hotmail.com
 
