@@ -5,3 +5,8 @@ RetroWatch Arduino v1.0.6
 2015.01.19
 Now RetroWatch supports u8glib. You can use various kind of driver chip. And u8glib consumes less RAM.
 
+
+=============================================
+Note:
+xxx_no_button source is test source. This source works well even you doesn't connect the button.
+
