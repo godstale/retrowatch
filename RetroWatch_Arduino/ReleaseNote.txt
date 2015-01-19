@@ -2,5 +2,6 @@
 RetroWatch Arduino v1.0.6
 - Add SPI header. Many user reported that missing SPI header makes compile error.
 
-
+2015.01.19
+Now RetroWatch supports u8glib. You can use various kind of driver chip. And u8glib consumes less RAM.
 
