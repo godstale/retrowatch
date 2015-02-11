@@ -14,22 +14,22 @@ Retro watch is open source smart watch project using Arduino and Android.
 [Translated in Polish](http://akademia.nettigo.pl/smartwatch/index.html) - by [Sebastian](http://akademia.nettigo.pl/)
 
 ==========
-[Source tree ]
+[Source tree](#)
 
 RetroWatch_Android
-  RetroWatch : requires Android v4.3 or over
-  RetroWatchLE : requires Android v4.0 or over. This source doesn't collect Notification data.
+  [RetroWatch](#) : requires Android v4.3 or over
+  [RetroWatchLE](#) : requires Android v4.0 or over. This source doesn't collect Notification data.
 
 RetroWatch_Arduino
-  RetroWatchArduino : uses I2C OLED, Adafruit library, requires one button.
-  RetroWatchArduino_no_button : I2C OLED, Adafruit library, works without buttons
-  RetroWatchArduino_spi : SPI OLED, Adafruit library, requires one button.
-  RetroWatchArduino_spi_no_button : SPI OLED, Adafruit library, works without buttons
+  [RetroWatchArduino](#) : uses I2C OLED, Adafruit library, requires one button.
+  [RetroWatchArduino_no_button](#) : I2C OLED, Adafruit library, works without buttons.
+  [RetroWatchArduino_spi](#) : SPI OLED, Adafruit library, requires one button.
+  [RetroWatchArduino_spi_no_button](#) : SPI OLED, Adafruit library, works without buttons.
   
-  [RetroWatchArduino_u8glib]()	: I2C OLED, u8glib library, requires one button. (I recommend this!!!)
-  [RetroWatchArduino_u8glib_no_button]() : I2C OLED, u8glib library, works without buttons
-  [RetroWatchArduino_u8glib_spi]() : SPI OLED, u8glib library, requires one button.
-  [RetroWatchArduino_u8glib_spi_no_button]() : SPI OLED, u8glib library, works without buttons
+  [RetroWatchArduino_u8glib](#)	: I2C OLED, u8glib library, requires one button. (I recommend this!!!).
+  [RetroWatchArduino_u8glib_no_button](#) : I2C OLED, u8glib library, works without buttons.
+  [RetroWatchArduino_u8glib_spi](#) : SPI OLED, u8glib library, requires one button.
+  [RetroWatchArduino_u8glib_spi_no_button](#) : SPI OLED, u8glib library, works without buttons.
 
 ==========
 
