@@ -26,10 +26,10 @@ RetroWatch_Arduino
   RetroWatchArduino_spi : SPI OLED, Adafruit library, requires one button.
   RetroWatchArduino_spi_no_button : SPI OLED, Adafruit library, works without buttons
   
-  [RetroWatchArduino_u8glib ]	: I2C OLED, u8glib library, requires one button. (I recommend this!!!)
-  [RetroWatchArduino_u8glib_no_button ] : I2C OLED, u8glib library, works without buttons
-  [RetroWatchArduino_u8glib_spi ] : SPI OLED, u8glib library, requires one button.
-  [RetroWatchArduino_u8glib_spi_no_button ] : SPI OLED, u8glib library, works without buttons
+  [RetroWatchArduino_u8glib]()	: I2C OLED, u8glib library, requires one button. (I recommend this!!!)
+  [RetroWatchArduino_u8glib_no_button]() : I2C OLED, u8glib library, works without buttons
+  [RetroWatchArduino_u8glib_spi]() : SPI OLED, u8glib library, requires one button.
+  [RetroWatchArduino_u8glib_spi_no_button]() : SPI OLED, u8glib library, works without buttons
 
 ==========
 
