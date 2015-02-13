@@ -23,8 +23,8 @@ RetroWatch_Android
   
   [RetroWatchLE](#) : requires Android v4.0 or over. This source doesn't collect Notification data. (This source is no longer supported)
    
-   
-
+.
+.
 RetroWatch_Arduino
 
   [RetroWatchArduino](#) : uses I2C OLED, Adafruit library, requires one button.
