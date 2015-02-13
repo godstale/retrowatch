@@ -16,15 +16,14 @@ Retro watch is open source smart watch project using Arduino and Android.
 ==========
 [Source tree](#)
 
-
+-----------------------------------
 RetroWatch_Android
 
   [RetroWatch](#) : requires Android v4.3 or over (Recommended)
   
   [RetroWatchLE](#) : requires Android v4.0 or over. This source doesn't collect Notification data. (This source is no longer supported)
    
-. 
-.
+-----------------------------------
 RetroWatch_Arduino
 
   [RetroWatchArduino](#) : uses I2C OLED, Adafruit library, requires one button.
