@@ -11,11 +11,74 @@
             backward-compatibility can go here.
         -->
     </style>
-
+    
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_example</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Example</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Example</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Example</item>
+        <item name="android:actionDropDownStyle">@style/DropDownNav.Example</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Example</item>
+        <item name="android:actionModeBackground">@drawable/cab_background_top_example</item>
+        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_example</item>
+        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Example</item>
+        
+        <!-- Light.DarkActionBar specific -->
+        <item name="android:actionBarWidgetTheme">@style/Theme.Example.Widget</item>
+        
     </style>
+    
+    
+    <!-- Customize system style -->
+    <style name="ActionBar.Solid.Example" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/ab_solid_example</item>
+        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_example</item>
+        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_example</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Example</item>
+    </style>
+
+    <style name="ActionBar.Transparent.Example" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">@drawable/ab_transparent_example</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Example</item>
+    </style>
+
+    <style name="PopupMenu.Example" parent="@android:style/Widget.Holo.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_example</item>	
+    </style>
+
+    <style name="DropDownListView.Example" parent="@android:style/Widget.Holo.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_example</item>
+    </style>
+
+    <style name="ActionBarTabStyle.Example" parent="@android:style/Widget.Holo.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_indicator_ab_example</item>
+    </style>
+
+    <style name="DropDownNav.Example" parent="@android:style/Widget.Holo.Spinner">
+        <item name="android:background">@drawable/spinner_background_ab_example</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_example</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_example</item>
+    </style>
+    
+    <style name="ProgressBar.Example" parent="@android:style/Widget.Holo.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_example</item>
+    </style>
+    
+    <style name="ActionButton.CloseMode.Example" parent="@android:style/Widget.Holo.ActionButton.CloseMode">
+        <item name="android:background">@drawable/btn_cab_done_example</item>
+    </style>
+
+    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
+    <style name="Theme.Example.Widget" parent="@android:style/Theme.Holo">
+        <item name="android:popupMenuStyle">@style/PopupMenu.Example</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Example</item>
+    </style>
+    
+
+    <!-- Application specific style -->
     
     <style name="AppTheme.ConnectionInfoContainer">
         <item name="android:background">@color/gray3</item>
@@ -23,6 +86,20 @@
     <style name="AppTheme.ConnectionInfoText">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/graye</item>
+    </style>
+    
+    
+    <!-- Intro -->
+    <style name="AppTheme.IntroContainer">
+        <item name="android:background">@color/blue6</item>
+    </style>
+    <style name="AppTheme.IntroTextBig">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/grayf</item>
+    </style>
+    <style name="AppTheme.IntroTextSmall">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/blue2</item>
     </style>
     
     
@@ -54,6 +131,21 @@
         <item name="android:paddingBottom">2dip</item>
     </style>
     
+    <style name="AppTheme.ListItem">
+        <item name="android:background">#EFEFEF</item>
+        <item name="android:paddingBottom">2dip</item>
+        <item name="android:paddingLeft">5dip</item>
+        <item name="android:textColor">#111111</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    
+    <style name="AppTheme.ListTitleSmall">
+        <item name ="android:textSize">14sp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_margin">0dip</item>
+        <item name="android:padding">10dip</item>
+    </style>
+    
     <!-- Input types -->
     <style name="AppTheme.FormContainer">
         <item name="android:background">#E0E0E0</item>
@@ -65,12 +157,26 @@
         <item name="android:textColor">#3F3F3F</item>
     </style>
     
+    <style name="AppTheme.FormTitle">
+        <item name ="android:textSize">16sp</item>
+        <item name ="android:textStyle">bold</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_margin">2dip</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:paddingRight">10dip</item>
+        <item name="android:background">#a1a1a1</item>
+    </style>
+    
     <style name="AppTheme.FormText">
         <item name ="android:textSize">12sp</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:layout_margin">2dip</item>
         <item name="android:paddingLeft">10dip</item>
         <item name="android:paddingRight">10dip</item>
+    </style>
+    
+    <style name="AppTheme.FormText.Title">
+        <item name="android:paddingLeft">20dip</item>
     </style>
     
     <style name="AppTheme.FormEditText">
@@ -98,6 +204,24 @@
         <item name="android:layout_margin">4dip</item>
         <item name ="android:padding">0dip</item>
         <item name="android:background">@drawable/form_button_selector</item>
+    </style>
+    
+    <style name="AppTheme.FormButtonMedium">
+        <item name ="android:textSize">14sp</item>
+        <item name="android:textColor">#EFEFEF</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_margin">0dip</item>
+        <item name="android:padding">10dip</item>
+        <item name="android:background">@drawable/form_button_selector</item>
+    </style>
+    
+    <style name="AppTheme.FormButtonGray">
+        <item name ="android:textSize">12sp</item>
+        <item name="android:textColor">#EFEFEF</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_margin">4dip</item>
+        <item name ="android:padding">0dip</item>
+        <item name="android:background">@drawable/form_button_selector_gray</item>
     </style>
     
     <style name="AppTheme.FormURLButton">

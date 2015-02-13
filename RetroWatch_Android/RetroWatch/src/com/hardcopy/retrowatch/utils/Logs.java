@@ -32,7 +32,7 @@ public class Logs {
 	
 	public static void v(String tag, String msg) {
 		if(mIsEnabled) {
-			Log.v(tag, msg);
+			Log.v(TAG, msg);
 		}
 	}
 	
@@ -44,7 +44,7 @@ public class Logs {
 	
 	public static void d(String tag, String msg) {
 		if(mIsEnabled) {
-			Log.d(tag, msg);
+			Log.d(TAG, msg);
 		}
 	}
 	
@@ -56,7 +56,7 @@ public class Logs {
 	
 	public static void e(String tag, String msg) {
 		if(mIsEnabled) {
-			Log.e(tag, msg);
+			Log.e(TAG, msg);
 		}
 	}
 	
@@ -68,7 +68,7 @@ public class Logs {
 	
 	public static void i(String tag, String msg) {
 		if(mIsEnabled) {
-			Log.e(tag, msg);
+			Log.e(TAG, msg);
 		}
 	}
 	

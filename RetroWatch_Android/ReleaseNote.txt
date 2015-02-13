@@ -1,15 +1,27 @@
 
-RetroWatch Android v1.0.6
+
+# RetroWatch Android v1.0.7
+- Simplify UX/UI
+  Deleted RSS feed tab, RSS feed browser
+  Simplify filtering: support only 2-type filtering. One is package name filtering and another is string-match filtering. User can select this type by touching message item
+  But still user can select icon at each filter.
+- Fix various bugs.
+- Now battery messages and wifi messages are normal message (previously they are emergency message)
+- Remote sync interval gets longer
+- Add cutom clock style in settings > clock style.
+
+
+# RetroWatch Android v1.0.6
 - Start service again after unintended service kill
   ServiceMonitoring class checks service status periodically
 - Add "Run in background" menu
 - Delete pre-defined RSS feed
 
 
-#v1.0.5 updated!
+# v1.0.5 updated!
 - Fix fatal error when receives SMS message
 
-#v1.0.3 updated!
+# v1.0.3 updated!
 - When user select "Enable this app's message all" at message list tab, it doesn't change original message.
 
 # v1.0.2 updated!

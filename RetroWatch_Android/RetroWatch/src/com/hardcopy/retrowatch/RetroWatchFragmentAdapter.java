@@ -33,13 +33,13 @@ public class RetroWatchFragmentAdapter extends FragmentPagerAdapter {
 	public static final String TAG = "RetroWatchFragmentAdapter";
 	
 	// Total count
-	public static final int FRAGMENT_COUNT = 4;
+	public static final int FRAGMENT_COUNT = 3;
 	
     // Fragment position
     public static final int FRAGMENT_POS_MESSAGE_LIST = 0;
     public static final int FRAGMENT_POS_FILTERS = 1;
-    public static final int FRAGMENT_POS_RSS = 2;
-    public static final int FRAGMENT_POS_WATCH_CONTROL = 3;
+    // public static final int FRAGMENT_POS_RSS = 2;		// disabled
+    public static final int FRAGMENT_POS_WATCH_CONTROL = 2;
     
 	public static final String ARG_SECTION_NUMBER = "section_number";
     
@@ -49,7 +49,7 @@ public class RetroWatchFragmentAdapter extends FragmentPagerAdapter {
     
     private Fragment mMessageListFragment = null;
     private Fragment mFiltersFragment = null;
-    private Fragment mRssFragment = null;
+    //private Fragment mRssFragment = null;
     private Fragment mWatchControlFragment = null;
 	
 	public RetroWatchFragmentAdapter(FragmentManager fm, Context c, IFragmentListener l) {
@@ -78,14 +78,14 @@ public class RetroWatchFragmentAdapter extends FragmentPagerAdapter {
 			}
 			fragment = mFiltersFragment;
 			
-		} else if(position == FRAGMENT_POS_RSS) {
+		}/* else if(position == FRAGMENT_POS_RSS) {
 			if(mRssFragment == null) {
 				mRssFragment = new RssFragment(mContext, mFragmentListener);
 				needToSetArguments = true;
 			}
 			fragment = mRssFragment;
 			
-		} else if(position == FRAGMENT_POS_WATCH_CONTROL) {
+		}*/ else if(position == FRAGMENT_POS_WATCH_CONTROL) {
 			if(mWatchControlFragment == null) {
 				mWatchControlFragment = new WatchControlFragment(mContext, mFragmentListener);
 				needToSetArguments = true;
@@ -119,8 +119,8 @@ public class RetroWatchFragmentAdapter extends FragmentPagerAdapter {
 			return mContext.getString(R.string.title_messagelist).toUpperCase(l);
 		case FRAGMENT_POS_FILTERS:
 			return mContext.getString(R.string.title_filters).toUpperCase(l);
-		case FRAGMENT_POS_RSS:
-			return mContext.getString(R.string.title_rss).toUpperCase(l);
+		/*case FRAGMENT_POS_RSS:
+			return mContext.getString(R.string.title_rss).toUpperCase(l);*/
 		case FRAGMENT_POS_WATCH_CONTROL:
 			return mContext.getString(R.string.title_watchcontrol).toUpperCase(l);
 		}

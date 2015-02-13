@@ -52,6 +52,7 @@ public class ContentManager {
 	private static final int RESPONSE_INVALID_PARAMETER = -2;
 	
 	private static final int FEED_SUBSTRING_SIZE = 50;
+	private static final int WARNING_BATTERY_LEVEL = 10;
 	
 	private static ContentManager mContentManager = null;		// Singleton pattern
 	
@@ -533,8 +534,19 @@ public class ContentManager {
 		if(mMessagingList != null && mMessagingList.size() > 0) {
 			for(ContentObject obj : mMessagingList) {
 				obj.mFilteredString = applyFilters(FilterObject.FILTER_TYPE_MESSAGING, obj.mOriginalString, obj.mPackageName);
-				obj.mIsEnabled = true;		// Enable this object (will be shown on watch)
-				obj.mIconType = mFilterIcon;
+				
+				if(mFilterIcon < 0) {
+					// This case means no filter applied
+					obj.mIsEnabled = false;
+				} else {
+					obj.mIsEnabled = true;		// Enable this object (will be shown on watch)
+					obj.mIconType = mFilterIcon;
+				}
+				
+				if(obj.mContentType == ContentObject.MESSAGING_ID_BATT_STATE && mBatteryGauge < WARNING_BATTERY_LEVEL) {
+					obj.mIsEnabled = true;		// Enable this object (will be shown on watch)
+					obj.mIconType = ContentObject.ICON_TYPE_BATT_LOW;
+				}
 				if(obj.mFilteredString == null || obj.mFilteredString.isEmpty())
 					continue;
 				mContentList.add(obj);
@@ -551,15 +563,12 @@ public class ContentManager {
 				
 				if(mFilterIcon < 0) {
 					// This case means no filter applied
-					if(obj.mContentType == ContentObject.EMERGENCY_ID_BATT_STATE) {
+					if(obj.mContentType == ContentObject.MESSAGING_ID_BATT_STATE) {
 						obj.mIsEnabled = false;
 					}
 				} else {
 					obj.mIsEnabled = true;		// Enable this object (will be shown on watch)
 					obj.mIconType = mFilterIcon;
-				}
-				if(obj.mContentType == ContentObject.EMERGENCY_ID_BATT_STATE && mBatteryGauge < 25) {
-					obj.mIsEnabled = true;		// Enable this object (will be shown on watch)
 				}
 
 				mContentList.add(obj);
@@ -608,22 +617,22 @@ public class ContentManager {
 			mWiFiStatus = EmergencyObject.WIFI_STATE_DISABLED;
 		}
 		
-		removeContentObject(ContentObject.CONTENT_TYPE_EMERGENCY, ContentObject.WIFI_PACKAGE_NAME);	// Remove from content object list
-		removeContentObject(ContentObject.CONTENT_TYPE_EMERGENCY, 
-				ContentObject.WIFI_PACKAGE_NAME, mEmergencyList);	// Remove from messaging list
+		removeContentObject(ContentObject.CONTENT_TYPE_MESSAGING, ContentObject.WIFI_PACKAGE_NAME);	// Remove from content object list
+		removeContentObject(ContentObject.CONTENT_TYPE_MESSAGING, 
+				ContentObject.WIFI_PACKAGE_NAME, mMessagingList);	// Remove from messaging list
 		
 		String wifi_msg = null;
 		if(mWiFiStatus == EmergencyObject.WIFI_STATE_ACTIVATED)
 			wifi_msg = "WiFi is on";
 		else 
 			wifi_msg = "Cannot use WiFi";
-		String strResult = applyFilters(FilterObject.FILTER_TYPE_EMERGENCY,
+		String strResult = applyFilters(FilterObject.FILTER_TYPE_MESSAGING,
 				wifi_msg,	// Default message string
 				ContentObject.WIFI_PACKAGE_NAME);
 		
 		if(strResult != null && !strResult.isEmpty()) {
-			ContentObject obj = new ContentObject(ContentObject.CONTENT_TYPE_EMERGENCY, 
-					ContentObject.EMERGENCY_ID_WIFI, 					// Fixed ID
+			ContentObject obj = new ContentObject(ContentObject.CONTENT_TYPE_MESSAGING, 
+					ContentObject.MESSAGING_ID_WIFI, 					// Fixed ID
 					wifi_msg, 	// Default message string
 					strResult);			// Set replace message. This message will be sent to remote
 			obj.mPackageName = ContentObject.WIFI_PACKAGE_NAME;
@@ -636,7 +645,7 @@ public class ContentManager {
 			}
 			
 			mContentList.add(obj);
-			mEmergencyList.add(obj);
+			mMessagingList.add(obj);
 		}
 	}
 	
@@ -807,18 +816,18 @@ public class ContentManager {
 		ContentObject obj = null;
 		
 		// Delete cached contents
-		removeContentObject(ContentObject.CONTENT_TYPE_EMERGENCY, ContentObject.BATT_PACKAGE_NAME);	// Remove from content object list
-		removeContentObject(ContentObject.CONTENT_TYPE_EMERGENCY, 
-				ContentObject.BATT_PACKAGE_NAME, mEmergencyList);	// Remove from emergency list
+		removeContentObject(ContentObject.CONTENT_TYPE_MESSAGING, ContentObject.BATT_PACKAGE_NAME);	// Remove from content object list
+		removeContentObject(ContentObject.CONTENT_TYPE_MESSAGING, 
+				ContentObject.BATT_PACKAGE_NAME, mMessagingList);	// Remove from list
 		
 		String battString = Utils.getBatteryLevelString(level);
-		String strResult = applyFilters(FilterObject.FILTER_TYPE_EMERGENCY, 
+		String strResult = applyFilters(FilterObject.FILTER_TYPE_MESSAGING, 
 				battString,				// Default message string
 				ContentObject.BATT_PACKAGE_NAME);
 		
 		if(strResult != null && !strResult.isEmpty()) {
-			obj = new ContentObject(ContentObject.CONTENT_TYPE_EMERGENCY, 
-					ContentObject.EMERGENCY_ID_BATT_STATE, 		// Fixed ID
+			obj = new ContentObject(ContentObject.CONTENT_TYPE_MESSAGING, 
+					ContentObject.MESSAGING_ID_BATT_STATE, 		// Fixed ID
 					battString, 		// Default message string
 					strResult);			// Set replace message. This message will be sent to remote
 			obj.mExtraData = null;
@@ -830,12 +839,12 @@ public class ContentManager {
 				obj.mIconType = mFilterIcon;
 				obj.mIsEnabled = true;		// Enable this object (will be shown on watch)
 			}
-			if(level < 25) {
+			if(level < WARNING_BATTERY_LEVEL) {
 				obj.mIsEnabled = true;		// Enable this object (will be shown on watch)
 			}
 			
 			mContentList.add(obj);
-			mEmergencyList.add(obj);
+			mMessagingList.add(obj);
 		}
 		return obj;
 	}
@@ -995,6 +1004,30 @@ public class ContentManager {
 		}
 
 		return filter_id;
+	}
+	
+	public synchronized int deleteFilter(int type, String packageName) {
+		if(packageName == null || packageName.length() < 1)
+			return RESPONSE_INVALID_PARAMETER;
+		
+		// remove from cached list
+		int deletedCount = 0;
+		for(int i = mFilterList.size() - 1; i > -1; i--) {
+			FilterObject obj = mFilterList.get(i);
+			if(obj.mType == type && obj.mOriginalString.contains(packageName)) {
+				mFilterList.remove(i);
+				deletedCount++;
+			}
+		}
+		
+		// remove from DB
+		try {
+			mDB.deleteFilterWithPackageName(type, packageName);
+		} catch(Exception e) {
+			Logs.d(e.toString());
+		}
+
+		return deletedCount;
 	}
 	
 	private IFeedListener mFeedListener = new IFeedListener() {

@@ -31,7 +31,7 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class FiltersAdapter extends ArrayAdapter<FilterObject> {
+public class FiltersAdapter extends ArrayAdapter<FilterObject> implements IDialogListener {
 
 	public static final String tag = "FiltersAdapter";
 	
@@ -80,6 +80,15 @@ public class FiltersAdapter extends ArrayAdapter<FilterObject> {
 		for(int i = mFilterList.size() - 1; -1 < i; i--) {
 			FilterObject fo = mFilterList.get(i);
 			if(fo.mId == id) {
+				mFilterList.remove(i);
+			}
+		}
+	}
+	
+	public void deleteFilter(int type, String packageName) {
+		for(int i = mFilterList.size() - 1; -1 < i; i--) {
+			FilterObject fo = mFilterList.get(i);
+			if(fo.mType == type && fo.mOriginalString.contains(packageName)) {
 				mFilterList.remove(i);
 			}
 		}
@@ -135,17 +144,31 @@ public class FiltersAdapter extends ArrayAdapter<FilterObject> {
 			if(filter.mOriginalString != null) {
 				holder.mTextOrigin.append(filter.mOriginalString);
 			}
-			if(filter.mReplaceString != null) {
-				holder.mTextConverted.setText( Utils.getReplaceTypeString(filter.mReplaceType) + ": "
-						+ ((filter.mReplaceString == null || filter.mReplaceString.isEmpty()) ? 
-								mContext.getString(R.string.filter_text_blank) : filter.mReplaceString));
-			} else {
-				holder.mTextConverted.setText(" ");
-			}
+			holder.mTextConverted.setText( mContext.getText(R.string.filter_sendmsg) + " "
+					+ mContext.getText(R.string.content_icon) + ": "
+					+ Utils.getIconTypeString(filter.mIconType + 1));
 		}
 		
 		return v;
 	}	// End of getView()
+	
+	@Override
+	public void OnDialogCallback(int msgType, int arg0, int arg1, String arg2, String arg3, Object arg4) {
+		switch(msgType) {
+		case IDialogListener.CALLBACK_DISABLE_PACKAGE:
+			if(arg4 != null) {
+				FilterObject filter = (FilterObject) arg4;
+				
+				if(mAdapterListener != null) {
+					mAdapterListener.OnAdapterCallback(IAdapterListener.CALLBACK_REMOVE_PACKAGE_FILTER, 0, 0, null, null, filter);
+				}
+			}
+			break;
+		
+		case IDialogListener.CALLBACK_CLOSE:
+			break;
+		}
+	}
 	
 	/**
 	 * Sometimes onClick listener misses event.
@@ -179,8 +202,12 @@ public class FiltersAdapter extends ArrayAdapter<FilterObject> {
 		{
 			case R.id.filter_item_container:
 				FilterObject filter = (FilterObject) v.getTag();
-				mAdapterListener.OnAdapterCallback(IAdapterListener.CALLBACK_FILTER_SELECTED, 0, 0, null, null, filter);
-				
+				if(filter != null) {
+					mAdapterListener.OnAdapterCallback(IAdapterListener.CALLBACK_FILTER_SELECTED, 0, 0, null, null, filter);
+					MenuDialog dialog = new MenuDialog(mContext);
+					dialog.setDialogParams(this, null, null, filter);
+					dialog.show();
+				}
 				break;
 		}	// End of switch()
 	}

@@ -21,6 +21,8 @@
     <string name="content_gmail_unread_count">Gmail unread count</string>
     <string name="content_undefined">Undefined</string>
     
+    <string name="content_icon">Icon</string>
+    
     <!--  Bluetooth -->
     <string name="bt_title">Bluetooth</string>
     
@@ -79,6 +81,7 @@
         <item>Simple ANALOG</item>
         <item>Simple DIGITAL</item>
         <item>Simple MIX</item>
+        <item>User defined</item>
     </string-array>
     <string name="clock_indicator_title">Show indicator?</string>
     <string-array name="clock_indicator_array">
@@ -96,6 +99,8 @@
     <string name="filter_origin">Original string</string>
     <string name="filter_replace">Replace string (leave blank to erase)</string>
     <string name="filter_icon">Icon type</string>
+    <string name="filter_package_name">Package name</string>
+    <string name="filter_sendmsg">Send message with </string>
     
     <string name="filter_field_converted">convert to:</string>
     <string name="filter_text_blank">[blank]</string>
@@ -202,6 +207,7 @@
     <!-- Dialog -->
     <string name="enable_message">Enable selected message only</string>
     <string name="enable_package">Enable this app\'s message all</string>
+    <string name="disable_package">Disable this app\'s message</string>
     <string name="close">Close</string>
     <string name="text_enabled">Selected message is enabled already. If you want to disable this message, move to Filter tab and delete filter.</string>
     

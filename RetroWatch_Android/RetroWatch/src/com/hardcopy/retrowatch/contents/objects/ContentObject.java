@@ -25,11 +25,11 @@ public class ContentObject {
 	
 	public static final int MESSAGING_ID_GMAIL = 1;
 	public static final int MESSAGING_ID_SMS = 2;
+	public static final int MESSAGING_ID_WIFI = 3;
+	public static final int MESSAGING_ID_BATT_STATE = 4;
 	
-	public static final int EMERGENCY_ID_WIFI = 1;
-	public static final int EMERGENCY_ID_CALL_STATE = 2;
-	public static final int EMERGENCY_ID_BATT_STATE = 3;
-	public static final int EMERGENCY_ID_RF_STATE = 4;
+	public static final int EMERGENCY_ID_CALL_STATE = 1;
+	public static final int EMERGENCY_ID_RF_STATE = 2;
 	
 	public static final int ICON_TYPE_NORMAL_MESSAGE = 0;
 	public static final int ICON_TYPE_EMAIL = 28;

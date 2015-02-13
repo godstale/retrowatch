@@ -75,8 +75,9 @@ public class BluetoothManager {
     private int mState;
 
     private static final long RECONNECT_DELAY_MAX = 60*60*1000;
+    private static final long RECONNECT_DELAY = 60*1000;
     
-    private long mReconnectDelay = 15*1000;
+    private long mReconnectDelay = RECONNECT_DELAY;
     private Timer mConnectTimer = null;
     private boolean mIsServiceStopped = false;
     
@@ -112,6 +113,10 @@ public class BluetoothManager {
     public synchronized int getState() {
         return mState;
     }
+    
+	public void requestBleStatusReport() {
+		mHandler.obtainMessage(MESSAGE_STATE_CHANGE, mState, 0).sendToTarget();
+	}
 
     /**
      * Start the chat service. Specifically start AcceptThread to begin a
@@ -285,7 +290,7 @@ public class BluetoothManager {
 				e.printStackTrace();
 			}
 			mConnectTimer = null;
-			mReconnectDelay = 0;
+			mReconnectDelay = RECONNECT_DELAY;
     	}
     }
 
@@ -534,6 +539,8 @@ public class BluetoothManager {
 							}
 						}
 					}
+					
+					reserveRetryConnect();
 				}	// End of run()
 			});
 		}

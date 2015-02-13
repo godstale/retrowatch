@@ -22,6 +22,7 @@ public interface IAdapterListener {
 	
 	public static final int CALLBACK_ADD_MESSAGE_FILTER = 101;
 	public static final int CALLBACK_ADD_PACKAGE_FILTER = 102;
+	public static final int CALLBACK_REMOVE_PACKAGE_FILTER = 111;
 	
 	public void OnAdapterCallback(int msgType, int arg0, int arg1, String arg2, String arg3, Object arg4);
 }

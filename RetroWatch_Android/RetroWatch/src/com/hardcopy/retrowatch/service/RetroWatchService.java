@@ -62,7 +62,8 @@ public class RetroWatchService extends Service implements IContentManagerListene
 
 	private static final String TAG = "RetroWatchService";
 	
-	private static final long SENDING_CONTENTS_INTERVAL = 30*60*1000;
+	private static final long SENDING_CONTENTS_INTERVAL = 10*60*1000;
+	private static final long DEFAULT_UPDATE_DELAY = 10*1000;
 	
 	// Context, System
 	private Context mContext = null;
@@ -150,7 +151,7 @@ public class RetroWatchService extends Service implements IContentManagerListene
 			if(mActivityHandler != null)
 				mActivityHandler.obtainMessage(Constants.MESSAGE_GMAIL_UPDATED, arg4).sendToTarget();
 			if(arg4 != null)
-				sendContentsToDevice((ContentObject) arg4);
+				reserveRemoteUpdate(DEFAULT_UPDATE_DELAY);
 			break;
 		
 		case IContentManagerListener.CALLBACK_FEED_UPDATED:
@@ -232,6 +233,8 @@ public class RetroWatchService extends Service implements IContentManagerListene
 	}
 	
 	private void sendTimeToDevice() {
+		if(mTransactionBuilder == null) return;
+		
 		TransactionBuilder.Transaction transaction = mTransactionBuilder.makeTransaction();
 		transaction.begin();
 		transaction.setCommand(Transaction.COMMAND_TYPE_SET_TIME);
@@ -241,6 +244,8 @@ public class RetroWatchService extends Service implements IContentManagerListene
 	}
 	
 	private void resetNormalObjectOfDevice() {
+		if(mTransactionBuilder == null) return;
+		
 		TransactionBuilder.Transaction transaction = mTransactionBuilder.makeTransaction();
 		transaction.begin();
 		transaction.setCommand(Transaction.COMMAND_TYPE_RESET_NORMAL_OBJ);
@@ -258,6 +263,8 @@ public class RetroWatchService extends Service implements IContentManagerListene
 	}
 	
 	private void resetEmergencyObjectOfDevice() {
+		if(mTransactionBuilder == null) return;
+		
 		TransactionBuilder.Transaction transaction = mTransactionBuilder.makeTransaction();
 		transaction.begin();
 		transaction.setCommand(Transaction.COMMAND_TYPE_RESET_EMERGENCY_OBJ);
@@ -477,6 +484,15 @@ public class RetroWatchService extends Service implements IContentManagerListene
 		
 		return scanMode;
 	}
+	
+	/**
+	 * Get BLE status (asynchronous)
+	 */
+	public void getBleStatus() {
+		if(mBtManager != null) {
+			mBtManager.requestBleStatusReport();
+		}
+	}
 
     /**
      * Initiate a connection to a remote device.
@@ -602,6 +618,12 @@ public class RetroWatchService extends Service implements IContentManagerListene
 		if(filter_id < 0)
 			return Constants.RESPONSE_DELETE_FILTER_FAILED;
 		return mContentManager.deleteFilter(filter_id);
+	}
+	
+	public int deleteFilter(int type, String packageName) {
+		if(packageName == null || packageName.length() < 1)
+			return Constants.RESPONSE_DELETE_FILTER_FAILED;
+		return mContentManager.deleteFilter(type, packageName);
 	}
 	
 	public void reserveRemoteUpdate(long delay) {
@@ -750,7 +772,8 @@ public class RetroWatchService extends Service implements IContentManagerListene
 						// notify to activity
 						mActivityHandler.obtainMessage(Constants.MESSAGE_ADD_NOTIFICATION, noti_id, 0, (Object)obj).sendToTarget();
 						// send to device
-						sendContentsToDevice(obj);
+						Logs.d("# NotificationReceiver - reserve update");
+						reserveRemoteUpdate(DEFAULT_UPDATE_DELAY);
 					}
 				}
 				break;
@@ -765,13 +788,7 @@ public class RetroWatchService extends Service implements IContentManagerListene
 				// Disabled: notify to device
 				// removeContentsOfDevice(obj);
 			
-				// Set delete timer.
-				// User action [clear noti] could make another delete message.
-				// To make simple scenario, wait for a while and synchronize every item with remote.
-				if(mDeleteTimer == null) {
-					mDeleteTimer = new Timer();
-					mDeleteTimer.schedule(new DeleteTimerTask(), 3*1000);
-				}
+				reserveRemoteUpdate(DEFAULT_UPDATE_DELAY);
 				break;
 			}	// End of switch(cmd)
 		}	// End of onReceive()
@@ -797,7 +814,8 @@ public class RetroWatchService extends Service implements IContentManagerListene
 							if(co != null) {
 								mActivityHandler.obtainMessage(Constants.MESSAGE_SMS_RECEIVED, (Object)co).sendToTarget();
 								// send to device
-								sendContentsToDevice(co);
+								// sendContentsToDevice(co);
+								reserveRemoteUpdate(DEFAULT_UPDATE_DELAY);
 							}
 						}
 						
@@ -820,9 +838,13 @@ public class RetroWatchService extends Service implements IContentManagerListene
 	public class TelephonyStateListener extends PhoneStateListener  {
 		@Override
 		public void onCallStateChanged(int state, String incomingNumber) {
-			Logs.d(TAG, "PhoneStateListener - onCallStateChanged();");
+			Logs.d("# PhoneStateListener - onCallStateChanged();");
 			switch (state) {
 			case TelephonyManager.CALL_STATE_IDLE:
+				Logs.d("# PhoneStateListener - onCallStateChanged(); - reserve update");
+				mContentManager.addCallObject(state, incomingNumber);	// This call deletes old objects. Doesn't add new object.
+				reserveRemoteUpdate(DEFAULT_UPDATE_DELAY);
+				break;
 			case TelephonyManager.CALL_STATE_RINGING:
 				ContentObject co = mContentManager.addCallObject(state, incomingNumber);
 				if(mActivityHandler != null)
@@ -830,8 +852,8 @@ public class RetroWatchService extends Service implements IContentManagerListene
 				// send to device
 				if(co != null)
 					sendContentsToDevice(co);
-				else
-					deleteEmergencyOfDevice(EmergencyObject.EMERGENCY_TYPE_CALL_STATE);
+				//else
+				//	deleteEmergencyOfDevice(EmergencyObject.EMERGENCY_TYPE_CALL_STATE);
 				break;
 			case TelephonyManager.CALL_STATE_OFFHOOK:
 			default:
@@ -842,10 +864,14 @@ public class RetroWatchService extends Service implements IContentManagerListene
 		
 		@Override
 		public void onServiceStateChanged(ServiceState serviceState) {
+			Logs.d("# PhoneStateListener - onServiceStateChanged();");
 			int state = serviceState.getState();
 			
 			switch (state) {
 			case ServiceState.STATE_IN_SERVICE:
+				Logs.d("# PhoneStateListener - onServiceStateChanged(); - reserve update");
+				reserveRemoteUpdate(DEFAULT_UPDATE_DELAY);
+				break;
 			case ServiceState.STATE_OUT_OF_SERVICE:
 			case ServiceState.STATE_EMERGENCY_ONLY:
 			case ServiceState.STATE_POWER_OFF:
@@ -889,15 +915,19 @@ public class RetroWatchService extends Service implements IContentManagerListene
 				int level = intent.getIntExtra("level", 0);
 				int scale = intent.getIntExtra("scale", 100);
 				
+				Logs.d("# mBatteryInfoReceiver : level = " + level);
+				
 				// WARNING: Battery service makes too many broadcast.
 				// Process data only when there's change in battery level or status.
 				if(mContentManager.getBatteryLevel() == level
 						&& mContentManager.getBatteryChargingState() == status)
 					return;
 				
-				ContentObject co = mContentManager.setBatteryInfo(level * 100 / scale, chargingStatus);
-				if(co != null)
-					sendContentsToDevice(co);
+				ContentObject co = mContentManager.setBatteryInfo(level, chargingStatus);
+				if(co != null && level < 10) {
+					Logs.d("# mBatteryInfoReceiver - reserve update");
+					reserveRemoteUpdate(DEFAULT_UPDATE_DELAY);
+				}
 			}
 		}
 	};

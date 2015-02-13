@@ -56,7 +56,8 @@ public class RetroWatchActivity extends FragmentActivity implements ActionBar.Ta
     // Debugging
     private static final String TAG = "RetroWatchActivity";
     
-    private static final long REMOTE_REFRESH_DELAY = 3*1000;
+    private static final long REMOTE_REFRESH_DELAY = 5*1000;
+    private static final long CONTENTS_REFRESH_TIME = 60*1000;
 	
 	// Context, System
 	private Context mContext;
@@ -143,8 +144,6 @@ public class RetroWatchActivity extends FragmentActivity implements ActionBar.Ta
 		if(mRefreshTimer != null) {
 			mRefreshTimer.cancel();
 		}
-		mRefreshTimer = new Timer();
-		mRefreshTimer.schedule(new RefreshTimerTask(), REMOTE_REFRESH_DELAY);
 	}
 	
 	@Override
@@ -165,6 +164,7 @@ public class RetroWatchActivity extends FragmentActivity implements ActionBar.Ta
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
+		stopContentUpdate();
 		finalizeActivity();
 	}
 	
@@ -306,45 +306,13 @@ public class RetroWatchActivity extends FragmentActivity implements ActionBar.Ta
 				}
 			}
 			break;
-			
-		case IFragmentListener.CALLBACK_REQUEST_RSS:
-			getRssAll();
-			break;
-		case IFragmentListener.CALLBACK_REQUEST_ADD_RSS:
-			int id5 = Constants.RESPONSE_ADD_FILTER_FAILED;
-			CPObject cpObj = null;
+
+		case IFragmentListener.CALLBACK_REQUEST_DELETE_PACKAGE_FILTER:
 			if(mService != null && arg4 != null) {
-				cpObj = (CPObject) arg4;
-				id5 = mService.addRss(cpObj);
-				if(id5 > -1) {
-					RssFragment frg = (RssFragment) mSectionsPagerAdapter.getItem(RetroWatchFragmentAdapter.FRAGMENT_POS_RSS);
-					frg.addRss(cpObj);
-				}
-			}
-			break;
-			
-		case IFragmentListener.CALLBACK_REQUEST_EDIT_RSS:
-			int id6 = Constants.RESPONSE_EDIT_FILTER_FAILED;
-			CPObject cpObj2 = null;
-			if(mService != null && arg4 != null) {
-				cpObj2 = (CPObject) arg4;
-				id6 = mService.editRss(cpObj2);
-				if(id6 > -1) {
-					RssFragment frg = (RssFragment) mSectionsPagerAdapter.getItem(RetroWatchFragmentAdapter.FRAGMENT_POS_RSS);
-					frg.editRss(cpObj2);
-				}
-			}
-			break;
-			
-		case IFragmentListener.CALLBACK_REQUEST_DELETE_RSS:
-			int id7 = Constants.RESPONSE_EDIT_FILTER_FAILED;
-			CPObject cpObj3 = null;
-			if(mService != null && arg4 != null) {
-				cpObj3 = (CPObject) arg4;
-				id7 = mService.deleteRss(cpObj3.mId);
-				if(id7 > -1) {
-					RssFragment frg = (RssFragment) mSectionsPagerAdapter.getItem(RetroWatchFragmentAdapter.FRAGMENT_POS_RSS);
-					frg.deleteRss(cpObj3.mId);
+				FilterObject filter = (FilterObject) arg4;
+				if(mService.deleteFilter(filter.mType, filter.mOriginalString) > Constants.RESPONSE_DELETE_FILTER_FAILED) {
+					FiltersFragment frg = (FiltersFragment) mSectionsPagerAdapter.getItem(RetroWatchFragmentAdapter.FRAGMENT_POS_FILTERS);
+					frg.deleteFilter(filter.mType, filter.mOriginalString);
 					
 					ArrayList<ContentObject> contents = mService.refreshContentObjectList();
 					MessageListFragment frg2 = (MessageListFragment) mSectionsPagerAdapter.getItem(RetroWatchFragmentAdapter.FRAGMENT_POS_MESSAGE_LIST);
@@ -439,11 +407,17 @@ public class RetroWatchActivity extends FragmentActivity implements ActionBar.Ta
 			startActivityForResult(enableIntent, Constants.REQUEST_ENABLE_BT);
 		}
 		
-		// Get notifications from NotificationListenerService
-		mService.sendGetAllNotificationsSignal();
+		// Get messages(notifications)
+		refreshContentObjects();
 		
 		// Get filters
 		getFiltersAll();
+		
+		// Reserve refresh timer
+		reserveContentUpdate(5000);
+		
+		// Get current connection status (Result will be delivered on Handler)
+		mService.getBleStatus();
 	}
 	
 	private void finalizeActivity() {
@@ -487,7 +461,8 @@ public class RetroWatchActivity extends FragmentActivity implements ActionBar.Ta
 	
 	private void refreshContentObjects() {
 		if(mService != null) {
-			mService.sendGetAllNotificationsSignal();		// Delete cached notifications and set refresh signal
+			// WARNING: This makes remote sync.
+			// mService.sendGetAllNotificationsSignal();		// Delete cached notifications and set refresh signal
 			ArrayList<ContentObject> contents = mService.refreshContentObjectList();	// Get cached contents
 			
 			MessageListFragment frg2 = (MessageListFragment) mSectionsPagerAdapter.getItem(RetroWatchFragmentAdapter.FRAGMENT_POS_MESSAGE_LIST);
@@ -496,6 +471,25 @@ public class RetroWatchActivity extends FragmentActivity implements ActionBar.Ta
 		}
 	}
 	
+	/**
+	 * Reserve message list(notifications) refresh. Default is once a minute.
+	 * @param delay		delay before fist execution
+	 */
+	private void reserveContentUpdate(long delay) {
+		if(mRefreshTimer != null)
+			mRefreshTimer.cancel();
+		mRefreshTimer = new Timer();
+		mRefreshTimer.schedule(new RefreshTimerTask(), delay, CONTENTS_REFRESH_TIME);
+	}
+	
+	/**
+	 * Stop the refresh timer
+	 */
+	private void stopContentUpdate() {
+		if(mRefreshTimer != null)
+			mRefreshTimer.cancel();
+		mRefreshTimer = null;
+	}
 	
 	
 	/*****************************************************
@@ -544,13 +538,14 @@ public class RetroWatchActivity extends FragmentActivity implements ActionBar.Ta
 		}
 	}
 	
+	/*
 	private void getRssAll() {
 		if(mService != null) {
 			ArrayList<CPObject> cpoList = mService.getRssAll();
 			RssFragment frg = (RssFragment) mSectionsPagerAdapter.getItem(RetroWatchFragmentAdapter.FRAGMENT_POS_RSS);
 			frg.addRssAll(cpoList);
 		}
-	}
+	}*/
 	
 	
 	
@@ -703,8 +698,6 @@ public class RetroWatchActivity extends FragmentActivity implements ActionBar.Ta
 			mActivityHandler.post(new Runnable() {
 				public void run() {
 					refreshContentObjects();
-					
-					mRefreshTimer = null;
 				}
 			});
 		}

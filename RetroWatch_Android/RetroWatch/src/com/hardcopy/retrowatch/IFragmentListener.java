@@ -21,6 +21,7 @@ public interface IFragmentListener {
 	public static final int CALLBACK_REQUEST_ADD_FILTER = 2;
 	public static final int CALLBACK_REQUEST_EDIT_FILTER = 3;
 	public static final int CALLBACK_REQUEST_DELETE_FILTER = 4;
+	public static final int CALLBACK_REQUEST_DELETE_PACKAGE_FILTER = 5;
 	
 	public static final int CALLBACK_REQUEST_RSS = 11;
 	public static final int CALLBACK_REQUEST_ADD_RSS = 12;

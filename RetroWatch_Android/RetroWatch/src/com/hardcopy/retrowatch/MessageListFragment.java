@@ -67,13 +67,14 @@ public class MessageListFragment extends Fragment implements IAdapterListener {
 		switch(msgType) {
 		case IAdapterListener.CALLBACK_ADD_MESSAGE_FILTER:
 		case IAdapterListener.CALLBACK_ADD_PACKAGE_FILTER:
-			if(arg4 != null)
+			if(arg4 != null && mFragmentListener != null)
 				mFragmentListener.OnFragmentCallback(IFragmentListener.CALLBACK_REQUEST_ADD_FILTER, 0, 0, null, null, arg4);
 			break;
 		}
 	}
 	
 	public void addMessage(ContentObject object) {
+		if(mMessageListAdapter == null) return;
 		if(object != null) {
 			mMessageListAdapter.addMessage(object);
 			mMessageListAdapter.notifyDataSetChanged();
@@ -81,6 +82,7 @@ public class MessageListFragment extends Fragment implements IAdapterListener {
 	}
 	
 	public void addMessageAll(ArrayList<ContentObject> objList) {
+		if(mMessageListAdapter == null) return;
 		if(objList != null) {
 			mMessageListAdapter.addMessageAll(objList);
 			mMessageListAdapter.notifyDataSetChanged();
@@ -88,21 +90,25 @@ public class MessageListFragment extends Fragment implements IAdapterListener {
 	}
 	
 	public void deleteMessage(int id) {
+		if(mMessageListAdapter == null) return;
 		mMessageListAdapter.deleteMessage(id);
 		mMessageListAdapter.notifyDataSetChanged();
 	}
 	
 	public void deleteMessageByType(int type) {
+		if(mMessageListAdapter == null) return;
 		mMessageListAdapter.deleteMessageByType(type);
 		mMessageListAdapter.notifyDataSetChanged();
 	}
 	
 	public void deleteMessageByTypeAndName(int type, String packageName) {
+		if(mMessageListAdapter == null) return;
 		mMessageListAdapter.deleteMessageByTypeAndName(type, packageName);
 		mMessageListAdapter.notifyDataSetChanged();
 	}
 	
 	public void deleteMessageAll() {
+		if(mMessageListAdapter == null) return;
 		mMessageListAdapter.deleteMessageAll();
 		mMessageListAdapter.notifyDataSetChanged();
 	}

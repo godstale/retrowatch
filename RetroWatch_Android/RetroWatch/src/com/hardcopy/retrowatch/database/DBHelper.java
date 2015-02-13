@@ -664,6 +664,17 @@ public class DBHelper {
 		}
 	}
 	
+	public void deleteFilterWithPackageName(int type, String packageName) {
+		if(mDb == null || packageName == null || packageName.length() < 1) return;
+		
+		synchronized (mDb) {
+			int count = mDb.delete(TABLE_NAME_FILTERS, 
+					KEY_FILTER_TYPE + "='" + type + "' AND " +KEY_FILTER_ORIGINAL + "='" + packageName + "'", // whereClause
+					null); 			// whereArgs
+			Logs.d(TAG, "- Delete filter : type="+type+", package name="+packageName+", count="+count);
+		}
+	}
+	
 	public void deleteFilterWithType(int type) {
 		if(mDb == null) return;
 		

@@ -45,6 +45,7 @@ public class Utils {
 	
 	private static final String TAG = "Utils";  
 	
+	private static String[] mIconTypeString = null;
 	private static String[] mMessageTypeString = null;
 	private static String[] mFilterTypeString = null;
 	private static String[] mFilterMatchingTypeString = null;
@@ -65,6 +66,7 @@ public class Utils {
 	
 	private void initialize() {
 		// Load strings
+		mIconTypeString = mContext.getResources().getStringArray(R.array.filter_icon_type_array);
 		mMessageTypeString = mContext.getResources().getStringArray(R.array.message_type_array);
 		mFilterTypeString = mContext.getResources().getStringArray(R.array.filter_type_array);
 		mFilterMatchingTypeString = mContext.getResources().getStringArray(R.array.filter_matching_type_array);
@@ -80,6 +82,12 @@ public class Utils {
 	//============================================================
 	// App string resource
 	//============================================================
+	public static String getIconTypeString(int type) {
+		if(type > -1 && type < mIconTypeString.length) {
+			return mIconTypeString[type];
+		}
+		return null;
+	}
 	
 	public static String getMessageTypeString(int type) {
 		if(type > -1 && type < mMessageTypeString.length) {
