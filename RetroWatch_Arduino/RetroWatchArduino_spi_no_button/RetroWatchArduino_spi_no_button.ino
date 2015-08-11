@@ -367,25 +367,27 @@ void parseMessage(byte c) {
   }
   
   if(TR_COMMAND == CMD_TYPE_ADD_EMERGENCY_OBJ) {
-    if(emgParsingChar < EMG_BUFFER_MAX) {
+    if(emgParsingChar < EMG_BUFFER_MAX - 1) {
       if(emgParsingChar > 1) {
         emgBuffer[emgParsingLine][emgParsingChar] = c;
       }
       emgParsingChar++;
     }
     else {
-      TRANSACTION_POINTER = TR_MODE_WAIT_COMPLETE;
+      TRANSACTION_POINTER = TR_MODE_IDLE;
+      processTransaction();
     }
   }
   else if(TR_COMMAND == CMD_TYPE_ADD_NORMAL_OBJ) {
-    if(msgParsingChar < MSG_BUFFER_MAX) {
+    if(msgParsingChar < MSG_BUFFER_MAX - 1) {
       if(msgParsingChar > 1) {
         msgBuffer[msgParsingLine][msgParsingChar] = c;
       }
       msgParsingChar++;
     }
     else {
-      TRANSACTION_POINTER = TR_MODE_WAIT_COMPLETE;
+      TRANSACTION_POINTER = TR_MODE_IDLE;
+      processTransaction();
     }
   }
   else if(TR_COMMAND == CMD_TYPE_ADD_USER_MESSAGE) {
@@ -442,6 +444,7 @@ void processTransaction() {
   }
   else if(TR_COMMAND == CMD_TYPE_ADD_NORMAL_OBJ) {
     msgBuffer[msgParsingLine][0] = 0x01;
+    msgBuffer[msgParsingLine][MSG_BUFFER_MAX - 1] = 0x00;
     msgParsingChar = 0;
     msgParsingLine++;
     if(msgParsingLine >= MSG_COUNT_MAX)
@@ -450,6 +453,7 @@ void processTransaction() {
   }
   else if(TR_COMMAND == CMD_TYPE_ADD_EMERGENCY_OBJ) {
     emgBuffer[emgParsingLine][0] = 0x01;
+    emgBuffer[emgParsingLine][EMG_BUFFER_MAX - 1] = 0x00;
     emgParsingChar = 0;
     emgParsingLine++;
     if(emgParsingLine >= EMG_COUNT_MAX)

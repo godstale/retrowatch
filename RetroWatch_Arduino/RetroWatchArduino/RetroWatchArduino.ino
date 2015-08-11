@@ -27,7 +27,6 @@ All text above, and the first splash screen(Adafruit) must be included in any re
 */
 
 //#include <avr/pgmspace.h>
-#include <SPI.h>
 #include <Wire.h>
 #include <SoftwareSerial.h>
 #include <Adafruit_GFX.h>
@@ -37,7 +36,7 @@ All text above, and the first splash screen(Adafruit) must be included in any re
 
 ///////////////////////////////////////////////////////////////////
 //----- OLED instance
-#define OLED_RESET 8
+#define OLED_RESET 9
 Adafruit_SSD1306 display(OLED_RESET);
 
 #if (SSD1306_LCDHEIGHT != 64)
@@ -362,25 +361,27 @@ void parseMessage(byte c) {
   }
   
   if(TR_COMMAND == CMD_TYPE_ADD_EMERGENCY_OBJ) {
-    if(emgParsingChar < EMG_BUFFER_MAX) {
+    if(emgParsingChar < EMG_BUFFER_MAX - 1) {
       if(emgParsingChar > 1) {
         emgBuffer[emgParsingLine][emgParsingChar] = c;
       }
       emgParsingChar++;
     }
     else {
-      TRANSACTION_POINTER = TR_MODE_WAIT_COMPLETE;
+      TRANSACTION_POINTER = TR_MODE_IDLE;
+      processTransaction();
     }
   }
   else if(TR_COMMAND == CMD_TYPE_ADD_NORMAL_OBJ) {
-    if(msgParsingChar < MSG_BUFFER_MAX) {
+    if(msgParsingChar < MSG_BUFFER_MAX - 1) {
       if(msgParsingChar > 1) {
         msgBuffer[msgParsingLine][msgParsingChar] = c;
       }
       msgParsingChar++;
     }
     else {
-      TRANSACTION_POINTER = TR_MODE_WAIT_COMPLETE;
+      TRANSACTION_POINTER = TR_MODE_IDLE;
+      processTransaction();
     }
   }
   else if(TR_COMMAND == CMD_TYPE_ADD_USER_MESSAGE) {
@@ -437,6 +438,7 @@ void processTransaction() {
   }
   else if(TR_COMMAND == CMD_TYPE_ADD_NORMAL_OBJ) {
     msgBuffer[msgParsingLine][0] = 0x01;
+    msgBuffer[msgParsingLine][MSG_BUFFER_MAX - 1] = 0x00;
     msgParsingChar = 0;
     msgParsingLine++;
     if(msgParsingLine >= MSG_COUNT_MAX)
@@ -445,6 +447,7 @@ void processTransaction() {
   }
   else if(TR_COMMAND == CMD_TYPE_ADD_EMERGENCY_OBJ) {
     emgBuffer[emgParsingLine][0] = 0x01;
+    emgBuffer[emgParsingLine][EMG_BUFFER_MAX - 1] = 0x00;
     emgParsingChar = 0;
     emgParsingLine++;
     if(emgParsingLine >= EMG_COUNT_MAX)

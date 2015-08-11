@@ -342,7 +342,7 @@ void parseCommand(byte c) {
     TRANSACTION_POINTER = TR_MODE_WAIT_MESSAGE;
     TR_COMMAND = c;
     if(c == CMD_TYPE_ADD_EMERGENCY_OBJ) {
-      Serial.println("# start -  ADD_EMERGENCY_OBJ");
+      //Serial.println("# start -  ADD_EMERGENCY_OBJ");
       emgParsingChar = 0;
       if(emgParsingLine >= MSG_COUNT_MAX || emgParsingLine < 0)
         emgParsingLine = 0;
@@ -350,7 +350,7 @@ void parseCommand(byte c) {
         emgBuffer[emgParsingLine][i] = 0x00;
     }
     else if(c == CMD_TYPE_ADD_NORMAL_OBJ) {
-      Serial.println("# start -  ADD_NORMAL_OBJ");
+      //Serial.println("# start -  ADD_NORMAL_OBJ");
       msgParsingChar = 0;
       if(msgParsingLine >= MSG_COUNT_MAX || msgParsingLine < 0)
         msgParsingLine = 0;
@@ -383,27 +383,27 @@ void parseMessage(byte c) {
   }
   
   if(TR_COMMAND == CMD_TYPE_ADD_EMERGENCY_OBJ) {
-    if(emgParsingChar < EMG_BUFFER_MAX) {
+    if(emgParsingChar < EMG_BUFFER_MAX - 1) {
       if(emgParsingChar > 1) {
         emgBuffer[emgParsingLine][emgParsingChar] = c;
       }
       emgParsingChar++;
     }
     else {
+      TRANSACTION_POINTER = TR_MODE_IDLE;
       processTransaction();
-      TRANSACTION_POINTER = TR_MODE_WAIT_COMPLETE;
     }
   }
   else if(TR_COMMAND == CMD_TYPE_ADD_NORMAL_OBJ) {
-    if(msgParsingChar < MSG_BUFFER_MAX) {
+    if(msgParsingChar < MSG_BUFFER_MAX - 1) {
       if(msgParsingChar > 1) {
         msgBuffer[msgParsingLine][msgParsingChar] = c;
       }
       msgParsingChar++;
     }
     else {
+      TRANSACTION_POINTER = TR_MODE_IDLE;
       processTransaction();
-      TRANSACTION_POINTER = TR_MODE_WAIT_COMPLETE;
     }
   }
   else if(TR_COMMAND == CMD_TYPE_ADD_USER_MESSAGE) {
@@ -459,7 +459,7 @@ void processTransaction() {
     // Not available yet.
   }
   else if(TR_COMMAND == CMD_TYPE_ADD_NORMAL_OBJ) {
-    Serial.println("# processTransaction() - ADD_NORMAL_OBJ");
+    //Serial.println("# processTransaction() - ADD_NORMAL_OBJ");
     msgBuffer[msgParsingLine][0] = 0x01;
     msgBuffer[msgParsingLine][MSG_BUFFER_MAX-1] = 0x00;
     msgParsingChar = 0;
@@ -469,9 +469,9 @@ void processTransaction() {
     setNextDisplayTime(millis(), 0);  // update screen immediately
   }
   else if(TR_COMMAND == CMD_TYPE_ADD_EMERGENCY_OBJ) {
-    Serial.println("# processTransaction() - ADD_EMERGENCY_OBJ");
+    //Serial.println("# processTransaction() - ADD_EMERGENCY_OBJ");
     emgBuffer[emgParsingLine][0] = 0x01;
-    msgBuffer[msgParsingLine][MSG_BUFFER_MAX-1] = 0x00;
+    emgBuffer[emgParsingLine][EMG_BUFFER_MAX - 1] = 0x00;
     emgParsingChar = 0;
     emgParsingLine++;
     if(emgParsingLine >= EMG_COUNT_MAX)
