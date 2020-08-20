@@ -25,6 +25,7 @@ RetroWatch_Android
    
 -----------------------------------
 RetroWatch_Arduino
+: Recommed to compile with Arduino 1.0.x version to avoid OLED(SSD1306) library compatibility error.
 
   [RetroWatchArduino](#) : uses I2C OLED, Adafruit library, requires one button.
   
