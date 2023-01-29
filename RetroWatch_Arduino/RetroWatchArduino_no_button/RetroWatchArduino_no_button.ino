@@ -39,7 +39,7 @@ All text above, and the first splash screen(Adafruit) must be included in any re
 #define OLED_RESET 9
 Adafruit_SSD1306 display(OLED_RESET);
 
-#if (SSD1306_LCDHEIGHT != 64)
+#if (SSD1306_LCDHEIGHT != 32)
 #error("Height incorrect, please fix Adafruit_SSD1306.h!");
 #endif
 ///////////////////////////////////////////////////////////////////
@@ -115,8 +115,8 @@ byte iSecond = 0;
 #define TIME_BUFFER_MAX 6
 char timeParsingIndex = 0;
 char timeBuffer[6] = {-1, -1, -1, -1, -1, -1};
-PROGMEM const char* weekString[] = {"", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
-PROGMEM const char* ampmString[] = {"AM", "PM"};
+PROGMEM const char* const weekString[] = {"", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+PROGMEM const char* const ampmString[] = {"AM", "PM"};
 
 //----- Display features
 #define DISPLAY_MODE_START_UP 0
